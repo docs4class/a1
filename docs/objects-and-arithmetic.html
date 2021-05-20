@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 3 Objects and Arithmetic | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 3 Objects and Arithmetic | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 3 Objects and Arithmetic | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="matrices.html"/>
-<link rel="next" href="dplyr.html"/>
+<link rel="prev" href="r-basics.html"/>
+<link rel="next" href="summaries-and-subscripting.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,100 +212,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="playing-with-data-using-mtcars" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Playing With Data (Using mtcars)</h1>
-<div id="practicing-with-mtcars-data-set" class="section level2">
-<h2><span class="header-section-number">6.1</span> Practicing with <code>mtcars</code> data set</h2>
-<p>This demonstration is based on the datasset <code>mtcars</code>.</p>
-<ol style="list-style-type: decimal">
-<li>Read in <code>mtcars</code></li>
-</ol>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="playing-with-data-using-mtcars.html#cb124-1"></a><span class="kw">data</span>(mtcars)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>View first few rows and last few rows of mtcars dataframe using functions <code>head()</code> and <code>tail()</code></li>
-</ol>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="playing-with-data-using-mtcars.html#cb125-1"></a><span class="kw">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="playing-with-data-using-mtcars.html#cb127-1"></a><span class="kw">tail</span>(mtcars)</span></code></pre></div>
-<pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
-## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
-## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
-## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
-## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
-## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
-## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Some info about mtcars dataframe using function <code>colnames()</code>, <code>rownames()</code>, and <code>dim()</code></li>
-</ol>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="playing-with-data-using-mtcars.html#cb129-1"></a><span class="kw">colnames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
-## [11] &quot;carb&quot;</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="playing-with-data-using-mtcars.html#cb131-1"></a><span class="kw">rownames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
-##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
-##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
-## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
-## [13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
-## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
-## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
-## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
-## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
-## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
-## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="playing-with-data-using-mtcars.html#cb133-1"></a><span class="kw">dim</span>(mtcars)</span></code></pre></div>
-<pre><code>## [1] 32 11</code></pre>
+<div id="objects-and-arithmetic" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Objects and Arithmetic</h1>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>R stores information and operates on objects. The simplest objects are scalars, vectors and matrices.
+But there are many others: lists and dataframes for example. In advanced use of R it can also be
+useful to define new types of object, specific for particular application. We will stick with just the
+most commonly used objects here.
+An important feature of R is that it will do different things on different types of objects. For
+example, type:1</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="objects-and-arithmetic.html#cb32-1"></a><span class="dv">4</span><span class="op">+</span><span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>So, R does scalar arithmetic returning the scalar value 10. (In actual fact, R returns a vector of
+length 1 - hence the [1] denoting first element of the vector.
+We can assign objects values for subsequent use. For example:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="objects-and-arithmetic.html#cb34-1"></a>x&lt;-<span class="dv">6</span></span>
+<span id="cb34-2"><a href="objects-and-arithmetic.html#cb34-2"></a>y&lt;-<span class="dv">4</span></span>
+<span id="cb34-3"><a href="objects-and-arithmetic.html#cb34-3"></a>z&lt;-x<span class="op">+</span>y</span></code></pre></div>
+<p>would do the same calculation as above, storing the result in an object called z. We can look at
+the contents of the object by simply typing its name:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objects-and-arithmetic.html#cb35-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>At any time we can list the objects which we have created:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="objects-and-arithmetic.html#cb37-1"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<p>Notice that ls is actually an object itself. Typing ls would result in a display of the contents of
+this object, in this case, the commands of the function. The use of parentheses, ls(), ensures that
+the function is executed and its result - in this case, a list of the objects in the directory - displayed.
+More commonly a function will operate on an object, for example</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="objects-and-arithmetic.html#cb39-1"></a><span class="kw">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>calculates the square root of 16. Objects can be removed from the current workspace with the rm
+function:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objects-and-arithmetic.html#cb41-1"></a><span class="kw">rm</span>(x,y)</span></code></pre></div>
+<p>for example.
+There are many standard functions available in R, and it is also possible to create new ones.
+Vectors can be created in R in a number of ways. We can describe all of the elements:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objects-and-arithmetic.html#cb42-1"></a>z&lt;-<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span></code></pre></div>
+<p>Note the use of the function c to concatenate or âglue togetherâ individual elements. This function
+can be used much more widely, for example</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objects-and-arithmetic.html#cb43-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>)</span>
+<span id="cb43-2"><a href="objects-and-arithmetic.html#cb43-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb43-3"><a href="objects-and-arithmetic.html#cb43-3"></a>z&lt;-<span class="kw">c</span>(x,y)</span></code></pre></div>
+<p>would lead to the same result by gluing together two vectors to create a single vector.
+Sequences can be generated as follows:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objects-and-arithmetic.html#cb44-1"></a>x&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span></code></pre></div>
+<p>while more general sequences can be generated using the seq command. For example:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objects-and-arithmetic.html#cb45-1"></a><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dt">by=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="objects-and-arithmetic.html#cb47-1"></a><span class="kw">seq</span>(<span class="dv">8</span>,<span class="dv">20</span>,<span class="dt">length=</span><span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1]  8.0 10.4 12.8 15.2 17.6 20.0</code></pre>
+<p>These examples illustrate that many functions in R have optional arguments, in this case, either
+the step length or the total length of the sequence (it doesnât make sense to use both). If you leave
+out both of these options, R will make its own default choice, in this case assuming a step length
+of 1. So, for example,</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="objects-and-arithmetic.html#cb49-1"></a><span class="kw">seq</span>(<span class="dv">8</span>,<span class="dv">20</span>,<span class="dt">length=</span><span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1]  8.0 10.4 12.8 15.2 17.6 20.0</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="objects-and-arithmetic.html#cb51-1"></a>x&lt;-<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb51-2"><a href="objects-and-arithmetic.html#cb51-2"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>also generates a vector of integers from 1 to 10.
+At this point itâs worth mentioning the help facility. If you donât know how to use a function,
+or donât know what the options or default values are, type help(functionname) where functionname is the name of the function you are interested in. This will usually help and will often include
+examples to make things even clearer.
+Another useful function for building vectors is the rep command for repeating things. For
+example</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="objects-and-arithmetic.html#cb53-1"></a><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##   [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+##  [38] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+##  [75] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="objects-and-arithmetic.html#cb55-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">6</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="objects-and-arithmetic.html#cb57-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>))</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3</code></pre>
+<p>which we could also simplify cleverly as</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="objects-and-arithmetic.html#cb59-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">rep</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3</code></pre>
+<p>As explained above, R will often adapt to the objects it is asked to work on. For example:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="objects-and-arithmetic.html#cb61-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb61-2"><a href="objects-and-arithmetic.html#cb61-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb61-3"><a href="objects-and-arithmetic.html#cb61-3"></a>x<span class="op">+</span>y</span></code></pre></div>
+<pre><code>## [1]  7 10 13</code></pre>
+<p>and</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="objects-and-arithmetic.html#cb63-1"></a>x<span class="op">*</span>y</span></code></pre></div>
+<pre><code>## [1]  6 16 36</code></pre>
+<p>showing that R uses componentwise arithmetic on vectors. R will also try to make sense if objects
+are mixed. For example,</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="objects-and-arithmetic.html#cb65-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb65-2"><a href="objects-and-arithmetic.html#cb65-2"></a>x<span class="op">+</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1]  8 10 11</code></pre>
+<p>though care should be taken to make sure that R is doing what you would like it to in these
+circumstances.
+Two particularly useful functions worth remembering are length which returns the length of a
+vector (i.e. the number of elements it contains) and sum which calculates the sum of the elements
+of a vector.</p>
 </div>
-<div id="excerises-for-you" class="section level2">
-<h2><span class="header-section-number">6.2</span> Excerises for you:</h2>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">3.2</span> Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>Find the minimum and maximum value of <code>mpg</code></li>
-<li>Find the mean and standard deviation of data variable <code>mpg</code></li>
-<li>What variable has a 3rd quartile value of 180.0?</li>
-<li>Create this figure</li>
+<li>Define</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Create and explain what this means</li>
-</ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Create and explain what this means</li>
-</ol>
-<pre><code>##             mpg        cyl       disp         hp        drat         wt
-## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
-## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
-## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
-## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
-## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
-## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
-## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
-## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
-## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
-## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
-## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
-##             qsec         vs          am       gear        carb
-## mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
-## cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
-## disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
-## hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
-## drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
-## wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
-## qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
-## vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
-## am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
-## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
-## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li>Create a variable called <code>efficiency</code> which is mpg divided by weight. Which car has the max <code>efficiency</code> and what is this value?</li>
-<li>Which variable in this dataset has the greatest standard deviation?</li>
-<li>How many cars have 3 gears?</li>
-<li>How many cars get more than 17 mpg?</li>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="objects-and-arithmetic.html#cb67-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">6</span>)</span>
+<span id="cb67-2"><a href="objects-and-arithmetic.html#cb67-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Decide what the result will be of the following:
+<ul>
+<li>length(x)</li>
+<li>sum(x)</li>
+<li>sum(x^2)</li>
+<li>x+y</li>
+<li>x*y</li>
+<li>x-2</li>
+<li>x^2</li>
+</ul></li>
+<li>Use R to check your answers.</li>
+<li>Decide what the following sequences are and use R to check your answers:
+<ul>
+<li>7:11</li>
+<li>seq(2,9)</li>
+<li>seq(4,10,by=2)</li>
+<li>seq(3,30,length=10)</li>
+<li>seq(6,-4,by=-2)</li>
+</ul></li>
+<li>Determine what the result will be of the following R expressions, and then use R to check if you are right:
+<ul>
+<li>rep(2,4)</li>
+<li>rep(c(1,2),4)</li>
+<li>rep(c(1,2),c(4,4))</li>
+<li>rep(1:4,4)</li>
+<li>rep(1:4,rep(3,4))</li>
+</ul></li>
+<li>Use the rep function to define simply the following vectors in R.
+<ul>
+<li>6,6,6,6,6,6</li>
+<li>5,8,5,8,5,8,5,8</li>
+<li>5,5,5,5,8,8,8,8</li>
+</ul></li>
 </ol>
 
 </div>
@@ -315,8 +358,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="summaries-and-subscripting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

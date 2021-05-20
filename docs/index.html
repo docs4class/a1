@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
 
-<meta name="author" content="Dr. Turner and Seth Cooper" />
+<meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
 <meta name="date" content="2021-05-20" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+<link rel="next" href="r-basics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,70 +55,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -134,22 +70,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Data Analytics One Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>3</b> Playing With Data (Using mtcars)</a><ul>
-<li class="chapter" data-level="3.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>3.1</b> Practicing with <code>mtcars</code> data set</a></li>
-<li class="chapter" data-level="3.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>3.2</b> Excerises for you:</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#workspace-and-working-directory"><i class="fa fa-check"></i><b>2.2</b> Workspace and working directory</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
+<li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises"><i class="fa fa-check"></i><b>3.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
+<li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
+<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-1"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
+<li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
+<li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
+<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
+<li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
+<li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
+<li class="chapter" data-level="7.5" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>7.5</b> Choosing columns: select, rename</a></li>
+<li class="chapter" data-level="7.6" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>7.6</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="7.7" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>7.7</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="7.8" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>7.8</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+<li class="chapter" data-level="7.9" data-path="dplyr.html"><a href="dplyr.html#creating-data-frames-data_frame"><i class="fa fa-check"></i><b>7.9</b> Creating data frames: data_frame</a></li>
+<li class="chapter" data-level="7.10" data-path="dplyr.html"><a href="dplyr.html#joining-merging-tables-left_join-right_join-inner_join-full_join-semi_join-anti_join"><i class="fa fa-check"></i><b>7.10</b> Joining (merging) tables: left_join, right_join, inner_join, full_join, semi_join, anti_join</a></li>
+<li class="chapter" data-level="7.11" data-path="dplyr.html"><a href="dplyr.html#viewing-more-output-print-view"><i class="fa fa-check"></i><b>7.11</b> Viewing more output: print, View</a></li>
+<li class="chapter" data-level="7.12" data-path="dplyr.html"><a href="dplyr.html#resources"><i class="fa fa-check"></i><b>7.12</b> Resources</a></li>
+<li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
+<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
+<li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
+<li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
+<li class="chapter" data-level="8.5" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises"><i class="fa fa-check"></i><b>8.5</b> <code>starwars</code> Excercises</a></li>
+<li class="chapter" data-level="8.6" data-path="more-dplyr.html"><a href="more-dplyr.html#nycflights13-excercises"><i class="fa fa-check"></i><b>8.6</b> <code>nycflights13</code> Excercises</a></li>
+<li class="chapter" data-level="8.7" data-path="more-dplyr.html"><a href="more-dplyr.html#storms-excercises"><i class="fa fa-check"></i><b>8.7</b> <code>storms</code> Excercises</a></li>
+<li class="chapter" data-level="8.8" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises-1"><i class="fa fa-check"></i><b>8.8</b> <code>starwars</code> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html"><i class="fa fa-check"></i><b>9</b> GDH Ice Cream</a><ul>
+<li class="chapter" data-level="9.1" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#problem-introduction"><i class="fa fa-check"></i><b>9.1</b> Problem Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#assignment"><i class="fa fa-check"></i><b>9.2</b> Assignment</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -172,15 +150,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Data Analytics One - Class Materials and Lessons</h1>
-<p class="author"><em>Dr. Turner and Seth Cooper</em></p>
+<p class="author"><em>Authored and Edited by: Dr. Turner and Seth Cooper</em></p>
 <p class="date" style="margin-top: 1.5em;"><em>2021-05-20</em></p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
 <p>This is a book written in <strong>Markdown</strong> which contains all the materials and lessons for data analytics one. If you miss a day, want to review something we covered in class, or for any reason want to look for a worksheet, this is where you can go.</p>
 <p>Each chapter contains a different topic we will cover during the semester. Some larger topics are split into two chapters to make accessing the materials a little more intuitive.</p>
 <p>This book is updated automatically with any changes made to the documents during the semester, so if at any point you are told there was a change in the assignment, you can come here to get the updated version.</p>
+<div id="about-r" class="section level2">
+<h2><span class="header-section-number">1.1</span> About R</h2>
+<p>R is a software language for carrying out complicated (and simple) statistical analyses. It includes
+routines for data summary and exploration, graphical presentation and data modelling. The aim of
+this document is to provide you with a basic fluency in the language. It is suggested that you work
+through this document at the computer, having started an R session. Type in all of the commands
+that are printed, and check that you understand how they operate. Then try the simple exercises
+at the end of each section.</p>
+<p>When you work in R you create objects that are stored in the current workspace (sometimes
+called image). Each object created remains in the image unless you explicitly delete it. At the end
+of the session the workspace will be lost unless you save it. You can save the workspace at any
+time by clicking on the disc icon at the top of the control panel.
+Commands written in R are saved in memory throughout the session. You can scroll back to
+previous commands typed by using the ‘up’ arrow key (and ‘down’ to scroll back again). You can
+also ‘copy’ and ‘paste’ using standard windows editor techniques (for example, using the ‘copy’
+and ‘paste’ dialog buttons). If at any point you want to save the transcript of your session, click
+on ‘File’ and then ‘Save History’, which will enable you to save a copy of the commands you have
+used for later use. As an alternative you might copy and paste commands manually into a notepad
+editor or something similar.</p>
 
+</div>
 </div>
             </section>
 
@@ -188,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-basics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

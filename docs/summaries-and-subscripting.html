@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 4 Summaries and Subscripting | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 4 Summaries and Subscripting | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 4 Summaries and Subscripting | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="matrices.html"/>
-<link rel="next" href="dplyr.html"/>
+<link rel="prev" href="objects-and-arithmetic.html"/>
+<link rel="next" href="matrices.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -212,100 +212,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="playing-with-data-using-mtcars" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Playing With Data (Using mtcars)</h1>
-<div id="practicing-with-mtcars-data-set" class="section level2">
-<h2><span class="header-section-number">6.1</span> Practicing with <code>mtcars</code> data set</h2>
-<p>This demonstration is based on the datasset <code>mtcars</code>.</p>
-<ol style="list-style-type: decimal">
-<li>Read in <code>mtcars</code></li>
-</ol>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="playing-with-data-using-mtcars.html#cb124-1"></a><span class="kw">data</span>(mtcars)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>View first few rows and last few rows of mtcars dataframe using functions <code>head()</code> and <code>tail()</code></li>
-</ol>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="playing-with-data-using-mtcars.html#cb125-1"></a><span class="kw">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="playing-with-data-using-mtcars.html#cb127-1"></a><span class="kw">tail</span>(mtcars)</span></code></pre></div>
-<pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
-## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
-## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
-## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
-## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
-## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
-## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Some info about mtcars dataframe using function <code>colnames()</code>, <code>rownames()</code>, and <code>dim()</code></li>
-</ol>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="playing-with-data-using-mtcars.html#cb129-1"></a><span class="kw">colnames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
-## [11] &quot;carb&quot;</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="playing-with-data-using-mtcars.html#cb131-1"></a><span class="kw">rownames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
-##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
-##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
-## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
-## [13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
-## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
-## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
-## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
-## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
-## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
-## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="playing-with-data-using-mtcars.html#cb133-1"></a><span class="kw">dim</span>(mtcars)</span></code></pre></div>
-<pre><code>## [1] 32 11</code></pre>
+<div id="summaries-and-subscripting" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Summaries and Subscripting</h1>
+<div id="introduction-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Let’s suppose we’ve collected some data from an experiment and stored them in an object x:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="summaries-and-subscripting.html#cb68-1"></a>x&lt;-<span class="kw">c</span>(<span class="fl">7.5</span>,<span class="fl">8.2</span>,<span class="fl">3.1</span>,<span class="fl">5.6</span>,<span class="fl">8.2</span>,<span class="fl">9.3</span>,<span class="fl">6.5</span>,<span class="fl">7.0</span>,<span class="fl">9.3</span>,<span class="fl">1.2</span>,<span class="fl">14.5</span>,<span class="fl">6.2</span>)</span></code></pre></div>
+<p>Some simple summary statistics of these data can be produced:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="summaries-and-subscripting.html#cb69-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 7.216667</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="summaries-and-subscripting.html#cb71-1"></a><span class="kw">var</span>(x)</span></code></pre></div>
+<pre><code>## [1] 11.00879</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="summaries-and-subscripting.html#cb73-1"></a><span class="kw">sd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 3.317949</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="summaries-and-subscripting.html#cb75-1"></a><span class="kw">summary</span>(x)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.200   6.050   7.250   7.217   8.475  14.500</code></pre>
+<p>which should all be self explanatory.</p>
+<p>It may be, however, that we subsequently learn that the first 6 data correspond to measurements made on one machine, and the second six on another machine.</p>
+<p>This might suggest summarizing the two sets of data separately, so we would need to extract from
+x the two relevant subvectors. This is achieved by subscripting:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="summaries-and-subscripting.html#cb77-1"></a>x[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>]</span></code></pre></div>
+<pre><code>## [1] 7.5 8.2 3.1 5.6 8.2 9.3</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="summaries-and-subscripting.html#cb79-1"></a>x[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>]</span></code></pre></div>
+<pre><code>## [1]  6.5  7.0  9.3  1.2 14.5  6.2</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="summaries-and-subscripting.html#cb81-1"></a><span class="kw">summary</span>(x[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>])</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   3.100   6.075   7.850   6.983   8.200   9.300</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="summaries-and-subscripting.html#cb83-1"></a><span class="kw">summary</span>(x[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>])</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.200   6.275   6.750   7.450   8.725  14.500</code></pre>
+<p>Other subsets can be created in the obvious way. For example:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="summaries-and-subscripting.html#cb85-1"></a>x[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">9</span>)]</span></code></pre></div>
+<pre><code>## [1] 8.2 5.6 9.3</code></pre>
+<p>Negative integers can be used to exclude particular elements. For example</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="summaries-and-subscripting.html#cb87-1"></a>x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>)]</span></code></pre></div>
+<pre><code>## [1]  6.5  7.0  9.3  1.2 14.5  6.2</code></pre>
+<p>has the same effect as</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="summaries-and-subscripting.html#cb89-1"></a>x[<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>]</span></code></pre></div>
+<pre><code>## [1]  6.5  7.0  9.3  1.2 14.5  6.2</code></pre>
 </div>
-<div id="excerises-for-you" class="section level2">
-<h2><span class="header-section-number">6.2</span> Excerises for you:</h2>
+<div id="exercises-summaries-and-subscripting" class="section level2">
+<h2><span class="header-section-number">4.2</span> Exercises (Summaries and Subscripting)</h2>
 <ol style="list-style-type: decimal">
-<li>Find the minimum and maximum value of <code>mpg</code></li>
-<li>Find the mean and standard deviation of data variable <code>mpg</code></li>
-<li>What variable has a 3rd quartile value of 180.0?</li>
-<li>Create this figure</li>
+<li>If x&lt;- c(5,9,2,3,4,6,7,0,8,12,2,9) decide what each of the following is and use R to
+check your answers:</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Create and explain what this means</li>
+<ol style="list-style-type: lower-alpha">
+<li>x[2]</li>
+<li>x[2:4]</li>
+<li>x[c(2,3,6)]</li>
+<li>x[c(1:5,10:12)]</li>
+<li>x[-(10:12)]</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Create and explain what this means</li>
-</ol>
-<pre><code>##             mpg        cyl       disp         hp        drat         wt
-## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
-## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
-## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
-## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
-## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
-## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
-## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
-## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
-## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
-## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
-## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
-##             qsec         vs          am       gear        carb
-## mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
-## cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
-## disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
-## hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
-## drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
-## wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
-## qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
-## vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
-## am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
-## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
-## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li>Create a variable called <code>efficiency</code> which is mpg divided by weight. Which car has the max <code>efficiency</code> and what is this value?</li>
-<li>Which variable in this dataset has the greatest standard deviation?</li>
-<li>How many cars have 3 gears?</li>
-<li>How many cars get more than 17 mpg?</li>
+<ol start="2" style="list-style-type: decimal">
+<li>The data y&lt;-c(33,44,29,16,25,45,33,19,54,22,21,49,11,24,56) contain sales of milk
+in gallons for 5 days in three different shops (the frst 3 values are for shops 1,2 and 3 on
+Monday, etc.) Produce a statistical summary of the sales for each day of the week and also
+for each shop.</li>
 </ol>
 
 </div>
@@ -315,8 +279,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objects-and-arithmetic.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

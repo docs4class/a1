@@ -1,0 +1,12 @@
+fig:nice-fig
+tab:nice-tab
+prerequisites
+intro
+playing-with-data-using-mtcars
+practicing-with-mtcars-data-set
+excerises-for-you
+methods
+applications
+example-one
+example-two
+final-words

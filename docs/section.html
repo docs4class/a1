@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 GDH Ice Cream | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 11  | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 GDH Ice Cream | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 11  | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 GDH Ice Cream | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 11  | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="more-dplyr.html"/>
-<link rel="next" href="data-analytics-i-quizzes.html"/>
+<link rel="prev" href="data-analytics-i-quizzes.html"/>
+<link rel="next" href="section-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -195,11 +195,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html"><i class="fa fa-check"></i><b>10</b> Data Analytics I Quizzes</a><ul>
 <li class="chapter" data-level="10.1" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-one-linear-regression"><i class="fa fa-check"></i><b>10.1</b> Quiz One (Linear Regression)</a></li>
 <li class="chapter" data-level="10.2" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-two"><i class="fa fa-check"></i><b>10.2</b> Quiz Two</a></li>
-<li class="chapter" data-level="10.3" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-three"><i class="fa fa-check"></i><b>10.3</b> Quiz Three</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="practice-final-exam.html"><a href="practice-final-exam.html"><i class="fa fa-check"></i><b>11</b> Practice Final Exam</a><ul>
-<li class="chapter" data-level="11.1" data-path="practice-final-exam.html"><a href="practice-final-exam.html#meter-freestyle-olympic-winning-time-seconds"><i class="fa fa-check"></i><b>11.1</b> 100-Meter Freestyle Olympic Winning Time (seconds)</a></li>
-<li class="chapter" data-level="11.2" data-path="practice-final-exam.html"><a href="practice-final-exam.html#starwars-fun"><i class="fa fa-check"></i><b>11.2</b> Starwars fun</a></li>
+<li class="chapter" data-level="11" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>11</b> </a></li>
+<li class="chapter" data-level="12" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>12</b> </a></li>
+<li class="chapter" data-level="13" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>13</b> </a></li>
+<li class="chapter" data-level="14" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>14</b> </a></li>
+<li class="chapter" data-level="15" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>15</b> </a></li>
+<li class="chapter" data-level="16" data-path="section-5.html"><a href="section-5.html"><i class="fa fa-check"></i><b>16</b> </a><ul>
+<li class="chapter" data-level="16.1" data-path="section-5.html"><a href="section-5.html#quiz-three"><i class="fa fa-check"></i><b>16.1</b> Quiz Three</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -221,52 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gdh-ice-cream" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> GDH Ice Cream</h1>
-<div id="problem-introduction" class="section level2">
-<h2><span class="header-section-number">9.1</span> Problem Introduction</h2>
-<p>GDH provides ice cream for its wonderful customers. I LOVE GDH. Do you love it as much as me (let’s discuss)?</p>
-<p>In the last three years GDH used ice cream, in pounds, by month, as shown in the attached file.</p>
-<pre><code>##  Month.Name year1 year2 year3
-##         Jan    60    67    64
-##         Feb    68    67    72
-##         Mar    83    62    61
-##         Apr   102    95   107
-##         May    95   105   101
-##         Jun    57    89    75
-##         Jul    61    57    81
-##         Aug   109   109   104
-##         Sep    56    86    88
-##         Oct    53    53    65
-##         Nov    74    72    72
-##         Dec    73    64    65</code></pre>
-</div>
-<div id="assignment" class="section level2">
-<h2><span class="header-section-number">9.2</span> Assignment</h2>
-<p>Please answer the following questions <em>using R</em>:.</p>
-<p>GDH provides ice cream cones for its customers. In the last three years GDH used ice cream, in pounds, by month, as shown in the attached file.</p>
-<ol style="list-style-type: decimal">
-<li>In R, create the above data frame and name it ice.cream</li>
-<li>What is another way you could have created the same data set?</li>
-<li>Using R, what is the mean using for the months of Feb and Oct?</li>
-<li>Create a chart showing ice cream use over time.</li>
-<li>Which year used the most ice cream?</li>
-<li>Which month has the highest standard deviation of ice cream use?</li>
-<li>Which year has the highest standard deviation of ice cream use?</li>
-<li>Also, you May want to check out this link to look at something called dataframes that may help with this assignment (but is not absolutely necessary) <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame" class="uri">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame</a></li>
-<li>Can you transpose your matrix?</li>
-<li>Can you add meaningful row names and column names?</li>
-</ol>
-
-</div>
+<div id="section" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> </h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="more-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-analytics-i-quizzes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-analytics-i-quizzes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

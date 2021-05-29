@@ -43,3 +43,10 @@ starwars-excercises-1
 gdh-ice-cream
 problem-introduction
 assignment
+data-analytics-i-quizzes
+quiz-one-linear-regression
+quiz-two
+quiz-three
+practice-final-exam
+meter-freestyle-olympic-winning-time-seconds
+starwars-fun

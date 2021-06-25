@@ -7,7 +7,8 @@ But there are many others: lists and dataframes for example. In advanced use of 
 useful to define new types of object, specific for particular application. We will stick with just the
 most commonly used objects here.
 An important feature of R is that it will do different things on different types of objects. For
-example, type:1
+example, type:
+
 ```{r}
 4+6
 ```
@@ -16,47 +17,60 @@ example, type:1
 So, R does scalar arithmetic returning the scalar value 10. (In actual fact, R returns a vector of
 length 1 - hence the [1] denoting first element of the vector.
 We can assign objects values for subsequent use. For example:
+
 ```{r}
 x<-6
 y<-4
 z<-x+y
 ```
 
-
 would do the same calculation as above, storing the result in an object called z. We can look at
 the contents of the object by simply typing its name:
+
 ```{r}
 z
 ```
 
+Storing things such as calculations as objects is extremely useful, especially in longer scripts. Mainly because you will likely call the same equation multiple times and if you need to revise it in any way you only need to change the initial assignment rather than every line. 
+
+## Basic Functions
+
 At any time we can list the objects which we have created:
+
 ```{r}
 ls()
 ```
 
+
 Notice that ls is actually an object itself. Typing ls would result in a display of the contents of
 this object, in this case, the commands of the function. The use of parentheses, ls(), ensures that
 the function is executed and its result - in this case, a list of the objects in the directory - displayed.
-More commonly a function will operate on an object, for example
+More commonly a function will operate on an object, for example:
+
 ```{r}
 sqrt(16)
 ```
 
 calculates the square root of 16. Objects can be removed from the current workspace with the rm
 function:
+
 ```{r}
 rm(x,y)
 ```
 
 for example.
+
+
 There are many standard functions available in R, and it is also possible to create new ones.
 Vectors can be created in R in a number of ways. We can describe all of the elements:
 ```{r}
 z<-c(5,9,1,0)
 ```
 
+
 Note the use of the function c to concatenate or âglue togetherâ individual elements. This function
 can be used much more widely, for example
+
 ```{r}
 x<-c(5,9)
 y<-c(1,0)
@@ -65,21 +79,27 @@ z<-c(x,y)
 
 
 would lead to the same result by gluing together two vectors to create a single vector.
+
+
 Sequences can be generated as follows:
+
 ```{r}
 x<-1:10
 ```
 
 while more general sequences can be generated using the seq command. For example:
+
 ```{r}
 seq(1,9,by=2)
 seq(8,20,length=6)
 ```
 
+
 These examples illustrate that many functions in R have optional arguments, in this case, either
 the step length or the total length of the sequence (it doesnât make sense to use both). If you leave
 out both of these options, R will make its own default choice, in this case assuming a step length
 of 1. So, for example,
+
 ```{r}
 seq(8,20,length=6)
 x<-seq(1,10)
@@ -87,46 +107,53 @@ x
 ```
 
 also generates a vector of integers from 1 to 10.
+
+
 At this point itâs worth mentioning the help facility. If you donât know how to use a function,
-or donât know what the options or default values are, type help(functionname) where functionname is the name of the function you are interested in. This will usually help and will often include
-examples to make things even clearer.
+or donât know what the options or default values are, type help(functionname) where functionname is the name of the function you are interested in. This will usually help and will often include examples to make things even clearer.
+
+
 Another useful function for building vectors is the rep command for repeating things. For
-example
+example:
+
 ```{r}
 rep(0,100)
 rep(1:3,6)
 rep(1:3,c(6,6,6))
 ```
-which we could also simplify cleverly as
+
+which we could also simplify cleverly as:
+
 ```{r}
 rep(1:3,rep(6,3))
 ```
 
+
 As explained above, R will often adapt to the objects it is asked to work on. For example:
+
 ```{r}
 x<-c(6,8,9)
 y<-c(1,2,4)
 x+y
 ```
+
 and
+
 ```{r}
 x*y
 ```
 
-
 showing that R uses componentwise arithmetic on vectors. R will also try to make sense if objects
-are mixed. For example,
+are mixed. For example:
+
 ```{r}
 x<-c(6,8,9)
 x+2
 ```
 
+though care should be taken to make sure that R is doing what you would like it to in these circumstances.
 
-though care should be taken to make sure that R is doing what you would like it to in these
-circumstances.
-Two particularly useful functions worth remembering are length which returns the length of a
-vector (i.e. the number of elements it contains) and sum which calculates the sum of the elements
-of a vector.
+Two particularly useful functions worth remembering are length which returns the length of a vector (i.e. the number of elements it contains) and sum which calculates the sum of the elements of a vector.
 
 ## Exercises
 

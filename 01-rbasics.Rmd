@@ -14,7 +14,7 @@ FYI: you can change the default location of the panes, among many other things: 
 
 Go into the Console, where we interact with the live R process.
 
-Make an assignment and then inspect the object you just created:
+You can make an object by assigning a value or statement to a letter or string. We use `<-` to assign objects meaning. Create and inspect the following object:
 
 ```{r}
 x <- 3 * 4
@@ -30,11 +30,11 @@ and in my head I hear, e.g., "x gets 12".
 
 You will make lots of assignments and the operator `<-` is a pain to type. Don't be lazy and use `=`, although it would work, because it will just sow confusion later. Instead, utilize RStudio's keyboard shortcut: Alt + - (the minus sign).
 
-Notice that RStudio automagically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
+Notice that RStudio automatically surrounds `<-` with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.
 
 RStudio offers many handy [keyboard shortcuts][rstudio-key-shortcuts]. Also, Alt+Shift+K brings up a keyboard shortcut reference card.
 
-Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words][wiki-snake-case] in names.
+Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words][wiki-snake-case] in names, but note that best practice is to choose ONE convention and stay true to it throughout your code.
 
 ```
 i_use_snake_case
@@ -53,6 +53,8 @@ Make another assignment:
 ```{r}
 turner_rocks <- 2 ^ 3
 ```
+
+When making assignments, it is best practice to keep the names brief, yet descriptive. For instance, while the name "this_is_a_really_long_name" is accurate, so is "long_name" and this is much more intuitive and easy to read/type over and over.
 
 Let's try to inspect:
 ```{r error=TRUE}
@@ -93,7 +95,9 @@ y <- seq(1, 10)
 y
 ```
 
-This common action can be shortened by surrounding the assignment with parentheses, which causes assignment and "print to screen" to happen.
+This common action can be shortened by surrounding the assignment with parentheses, which causes assignment and "print to screen" to happen. 
+
+It is best practice to always attempt to "print" your assignments after creating them. This will help leviate the issue of searching 200+ lines of code for that one error causing argument.
 
 ```{r}
 (y <- seq(1, 10))
@@ -127,11 +131,11 @@ or click the broom in RStudio's Environment pane.
 
 ## Workspace and working directory
 
-One day you will need to quit R, go do something else and return to your analysis later.
+One day you will need to quit R, go do something else and return to your analysis later (this is a very happy day).
 
-One day you will have multiple analyses going that use R and you want to keep them separate.
+One day you will have multiple analyses going that use R and you want to keep them separate (a not so happy day).
 
-One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world.
+One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world (the happiest of days).
 
 To handle these real life situations, you need to make two decisions:
 
@@ -191,3 +195,15 @@ setwd("~/myCoolProject")
 __Although I do not recommend it__, you can also use RStudio's Files pane to navigate to a directory and then set it as working directory from the menu: *Session > Set Working Directory > To Files Pane Location*. (You'll see even more options there). Or within the Files pane, choose "More" and "Set As Working Directory".
 
 But there's a better way. A way that also puts you on the path to managing your R work like an expert.
+
+## Exercises
+
+1. Create an object called "cool_object" and assign it the number 100.
+
+2. Create a new object called "big_brain" and multiply the object from question one by 15. 
+
+3. Print both objects. 
+
+4. Use base R functions to return today's date and print it.
+
+5. Create a sequence of numbers counting from 10 to 100 by 2. 

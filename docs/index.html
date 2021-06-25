@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-05-29" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-good-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What Good is Data Science?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
@@ -146,10 +147,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#exercises"><i class="fa fa-check"></i><b>2.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
 <li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises"><i class="fa fa-check"></i><b>3.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>3.2</b> Basic Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
 <li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
@@ -157,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
 <li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-1"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
@@ -224,11 +227,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Data Analytics One - Class Materials and Lessons</h1>
 <p class="author"><em>Authored and Edited by: Dr. Turner and Seth Cooper</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-29</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-06-24</em></p>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This is a book written in <a href=https://vimeo.com/178485416 target = _blank><strong>Markdown</strong></a> which contains all the materials and lessons for data analytics one. If you miss a day, want to review something we covered in class, or for any reason want to look for a worksheet, this is where you can go.</p>
+<p>This is a book written in <strong>Markdown</strong> which contains all the materials and lessons for data analytics one. If you miss a day, want to review something we covered in class, or for any reason want to look for a worksheet, this is where you can go.</p>
 <p>Each chapter contains a different topic we will cover during the semester. Some larger topics are split into two chapters to make accessing the materials a little more intuitive.</p>
 <p>This book is updated automatically with any changes made to the documents during the semester, so if at any point you are told there was a change in the assignment, you can come here to get the updated version.</p>
 <div id="about-r" class="section level2">
@@ -250,6 +253,16 @@ and ‘paste’ dialog buttons). If at any point you want to save the transcript
 on ‘File’ and then ‘Save History’, which will enable you to save a copy of the commands you have
 used for later use. As an alternative you might copy and paste commands manually into a notepad
 editor or something similar.</p>
+</div>
+<div id="what-good-is-data-science" class="section level2">
+<h2><span class="header-section-number">1.2</span> What Good is Data Science?</h2>
+<p>There are a variety of different applications for R. Yes, the more obvious ones would be things such as machine learning, artificial intelligence, and data mining. However, the possibilities with this program are honestly limitless. Take a look at this rather funny example of data analytics being used by retail giant Target to predict whether women were pregnant and how it put one teenager in a rather uncomfortable situation.</p>
+<p>Click Target Pregnancy Model Story</p>
+<p>What other applications are there? Well, are you interested in sports? Did you know that almost all professional athletic teams have dedicated teams of data scientists whose job it is to watch for patterns and collect data from the games in order to help the coaches make better calls and more effective plays?</p>
+<p>Click Data Analytics in the NBA Story</p>
+<p>Presbyterian College has a very high number of STEM majors. Specifically, biology is one of the most declared majors on campus. Data science is used by biologists and many other scientists around the world to help create data and compelling visualizations in order to convey their findings. Check out this interesting story about data science being used in the world of biology.</p>
+<p>Click for Computational Biology Story</p>
+<p>As you can no doubt see, it is more than likely safe to say that data science will one day be a major factor in almost every field some day. Data already surrounds us and is used by companies all over the world for a variety of tasks. By creating a foundation of these skills for yourself, regardless of whether your job title contains the words “data science”, you will be an asset to your company. Simply having the ability to understand and interpret data is one of the most sought after skills in the corporate sphere today.</p>
 
 </div>
 </div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-05-29" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-good-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What Good is Data Science?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
@@ -146,10 +147,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#exercises"><i class="fa fa-check"></i><b>2.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
 <li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises"><i class="fa fa-check"></i><b>3.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>3.2</b> Basic Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
 <li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
@@ -157,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
 <li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-1"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
@@ -431,16 +434,16 @@ Groups of rows:</li>
 ## # Groups:   month, day [365]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     1     1     1355           1350         5     1537           1515
-##  2  2013     1     1     1211           1215        -4     1423           1413
-##  3  2013     1     1      805            800         5     1118           1106
-##  4  2013     1     2     1829           1829         0     2104           2119
-##  5  2013     1     2     2241           2245        -4     2350              5
-##  6  2013     1     2      612            600        12      901            850
-##  7  2013     1     3      835            835         0      957           1000
-##  8  2013     1     3     1624           1633        -9     1837           1836
-##  9  2013     1     3     1816           1758        18     1940           1935
-## 10  2013     1     4     1654           1700        -6     1925           1943
+##  1  2013     1     1     1725           1720         5     2045           2021
+##  2  2013     1     1     1200           1200         0     1408           1356
+##  3  2013     1     1      559            600        -1      941            910
+##  4  2013     1     2      655            700        -5     1031           1034
+##  5  2013     1     2     1342           1345        -3     1650           1705
+##  6  2013     1     2     2045           1930        75     2302           2140
+##  7  2013     1     3     1326           1330        -4     1609           1655
+##  8  2013     1     3     1725           1725         0     2024           2050
+##  9  2013     1     3     1922           1925        -3     2248           2247
+## 10  2013     1     4     1600           1605        -5     1914           1944
 ## # ... with 1,085 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>

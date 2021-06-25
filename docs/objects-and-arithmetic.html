@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-05-29" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-good-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What Good is Data Science?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
@@ -146,10 +147,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#exercises"><i class="fa fa-check"></i><b>2.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
 <li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises"><i class="fa fa-check"></i><b>3.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>3.2</b> Basic Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
 <li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
@@ -157,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
 <li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-1"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
@@ -230,7 +233,7 @@ But there are many others: lists and dataframes for example. In advanced use of 
 useful to define new types of object, specific for particular application. We will stick with just the
 most commonly used objects here.
 An important feature of R is that it will do different things on different types of objects. For
-example, type:1</p>
+example, type:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="objects-and-arithmetic.html#cb32-1"></a><span class="dv">4</span><span class="op">+</span><span class="dv">6</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>So, R does scalar arithmetic returning the scalar value 10. (In actual fact, R returns a vector of
@@ -243,20 +246,24 @@ We can assign objects values for subsequent use. For example:</p>
 the contents of the object by simply typing its name:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objects-and-arithmetic.html#cb35-1"></a>z</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
+<p>Storing things such as calculations as objects is extremely useful, especially in longer scripts. Mainly because you will likely call the same equation multiple times and if you need to revise it in any way you only need to change the initial assignment rather than every line.</p>
+</div>
+<div id="basic-functions" class="section level2">
+<h2><span class="header-section-number">3.2</span> Basic Functions</h2>
 <p>At any time we can list the objects which we have created:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="objects-and-arithmetic.html#cb37-1"></a><span class="kw">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <p>Notice that ls is actually an object itself. Typing ls would result in a display of the contents of
 this object, in this case, the commands of the function. The use of parentheses, ls(), ensures that
 the function is executed and its result - in this case, a list of the objects in the directory - displayed.
-More commonly a function will operate on an object, for example</p>
+More commonly a function will operate on an object, for example:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="objects-and-arithmetic.html#cb39-1"></a><span class="kw">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>calculates the square root of 16. Objects can be removed from the current workspace with the rm
 function:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objects-and-arithmetic.html#cb41-1"></a><span class="kw">rm</span>(x,y)</span></code></pre></div>
-<p>for example.
-There are many standard functions available in R, and it is also possible to create new ones.
+<p>for example.</p>
+<p>There are many standard functions available in R, and it is also possible to create new ones.
 Vectors can be created in R in a number of ways. We can describe all of the elements:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objects-and-arithmetic.html#cb42-1"></a>z&lt;-<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span></code></pre></div>
 <p>Note the use of the function c to concatenate or âglue togetherâ individual elements. This function
@@ -264,8 +271,8 @@ can be used much more widely, for example</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objects-and-arithmetic.html#cb43-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">9</span>)</span>
 <span id="cb43-2"><a href="objects-and-arithmetic.html#cb43-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
 <span id="cb43-3"><a href="objects-and-arithmetic.html#cb43-3"></a>z&lt;-<span class="kw">c</span>(x,y)</span></code></pre></div>
-<p>would lead to the same result by gluing together two vectors to create a single vector.
-Sequences can be generated as follows:</p>
+<p>would lead to the same result by gluing together two vectors to create a single vector.</p>
+<p>Sequences can be generated as follows:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objects-and-arithmetic.html#cb44-1"></a>x&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span></code></pre></div>
 <p>while more general sequences can be generated using the seq command. For example:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objects-and-arithmetic.html#cb45-1"></a><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dt">by=</span><span class="dv">2</span>)</span></code></pre></div>
@@ -281,12 +288,11 @@ of 1. So, for example,</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="objects-and-arithmetic.html#cb51-1"></a>x&lt;-<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span>
 <span id="cb51-2"><a href="objects-and-arithmetic.html#cb51-2"></a>x</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>also generates a vector of integers from 1 to 10.
-At this point itâs worth mentioning the help facility. If you donât know how to use a function,
-or donât know what the options or default values are, type help(functionname) where functionname is the name of the function you are interested in. This will usually help and will often include
-examples to make things even clearer.
-Another useful function for building vectors is the rep command for repeating things. For
-example</p>
+<p>also generates a vector of integers from 1 to 10.</p>
+<p>At this point itâs worth mentioning the help facility. If you donât know how to use a function,
+or donât know what the options or default values are, type help(functionname) where functionname is the name of the function you are interested in. This will usually help and will often include examples to make things even clearer.</p>
+<p>Another useful function for building vectors is the rep command for repeating things. For
+example:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="objects-and-arithmetic.html#cb53-1"></a><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">100</span>)</span></code></pre></div>
 <pre><code>##   [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 ##  [38] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -295,7 +301,7 @@ example</p>
 <pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="objects-and-arithmetic.html#cb57-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">6</span>))</span></code></pre></div>
 <pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3</code></pre>
-<p>which we could also simplify cleverly as</p>
+<p>which we could also simplify cleverly as:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="objects-and-arithmetic.html#cb59-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="kw">rep</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3</code></pre>
 <p>As explained above, R will often adapt to the objects it is asked to work on. For example:</p>
@@ -307,18 +313,15 @@ example</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="objects-and-arithmetic.html#cb63-1"></a>x<span class="op">*</span>y</span></code></pre></div>
 <pre><code>## [1]  6 16 36</code></pre>
 <p>showing that R uses componentwise arithmetic on vectors. R will also try to make sense if objects
-are mixed. For example,</p>
+are mixed. For example:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="objects-and-arithmetic.html#cb65-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
 <span id="cb65-2"><a href="objects-and-arithmetic.html#cb65-2"></a>x<span class="op">+</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1]  8 10 11</code></pre>
-<p>though care should be taken to make sure that R is doing what you would like it to in these
-circumstances.
-Two particularly useful functions worth remembering are length which returns the length of a
-vector (i.e. the number of elements it contains) and sum which calculates the sum of the elements
-of a vector.</p>
+<p>though care should be taken to make sure that R is doing what you would like it to in these circumstances.</p>
+<p>Two particularly useful functions worth remembering are length which returns the length of a vector (i.e. the number of elements it contains) and sum which calculates the sum of the elements of a vector.</p>
 </div>
-<div id="exercises" class="section level2">
-<h2><span class="header-section-number">3.2</span> Exercises</h2>
+<div id="exercises-1" class="section level2">
+<h2><span class="header-section-number">3.3</span> Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Define</li>
 </ol>

@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-05-29" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-good-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What Good is Data Science?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
@@ -146,10 +147,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#exercises"><i class="fa fa-check"></i><b>2.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
 <li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises"><i class="fa fa-check"></i><b>3.2</b> Exercises</a></li>
+<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>3.2</b> Basic Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
 <li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
@@ -157,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
 <li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-1"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
@@ -234,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>FYI: you can change the default location of the panes, among many other things: [Customizing RStudio][rstudio-customizing].</p>
 <p>Go into the Console, where we interact with the live R process.</p>
-<p>Make an assignment and then inspect the object you just created:</p>
+<p>You can make an object by assigning a value or statement to a letter or string. We use <code>&lt;-</code> to assign objects meaning. Create and inspect the following object:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-basics.html#cb1-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span></span>
 <span id="cb1-2"><a href="r-basics.html#cb1-2"></a>x</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
@@ -242,9 +245,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a>objectName &lt;-<span class="st"> </span>value</span></code></pre></div>
 <p>and in my head I hear, e.g., “x gets 12”.</p>
 <p>You will make lots of assignments and the operator <code>&lt;-</code> is a pain to type. Don’t be lazy and use <code>=</code>, although it would work, because it will just sow confusion later. Instead, utilize RStudio’s keyboard shortcut: Alt + - (the minus sign).</p>
-<p>Notice that RStudio automagically surrounds <code>&lt;-</code> with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.</p>
+<p>Notice that RStudio automatically surrounds <code>&lt;-</code> with spaces, which demonstrates a useful code formatting practice. Code is miserable to read on a good day. Give your eyes a break and use spaces.</p>
 <p>RStudio offers many handy [keyboard shortcuts][rstudio-key-shortcuts]. Also, Alt+Shift+K brings up a keyboard shortcut reference card.</p>
-<p>Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words][wiki-snake-case] in names.</p>
+<p>Object names cannot start with a digit and cannot contain certain other characters such as a comma or a space. You will be wise to adopt a [convention for demarcating words][wiki-snake-case] in names, but note that best practice is to choose ONE convention and stay true to it throughout your code.</p>
 <pre><code>i_use_snake_case
 other.people.use.periods
 evenOthersUseCamelCase</code></pre>
@@ -253,6 +256,7 @@ evenOthersUseCamelCase</code></pre>
 <p>To inspect this, try out RStudio’s completion facility: type the first few characters, press TAB, add characters until you disambiguate, then press return.</p>
 <p>Make another assignment:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a>turner_rocks &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<p>When making assignments, it is best practice to keep the names brief, yet descriptive. For instance, while the name “this_is_a_really_long_name” is accurate, so is “long_name” and this is much more intuitive and easy to read/type over and over.</p>
 <p>Let’s try to inspect:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a>turnerrocks</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;turnerrocks&#39; not found</code></pre>
@@ -276,11 +280,12 @@ argument or maybe the first two. After that, I always use <code>name = value</co
 <span id="cb17-2"><a href="r-basics.html#cb17-2"></a>y</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>This common action can be shortened by surrounding the assignment with parentheses, which causes assignment and “print to screen” to happen.</p>
+<p>It is best practice to always attempt to “print” your assignments after creating them. This will help leviate the issue of searching 200+ lines of code for that one error causing argument.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1"></a>(y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>))</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>Not all functions have (or require) arguments:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1"></a><span class="kw">date</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Sat May 29 18:46:13 2021&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Jun 24 19:51:47 2021&quot;</code></pre>
 <p>Now look at your workspace – in the upper right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1"></a><span class="kw">objects</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;this_is_a_really_long_name&quot; &quot;turner_rocks&quot;              
@@ -298,9 +303,9 @@ argument or maybe the first two. After that, I always use <code>name = value</co
 </div>
 <div id="workspace-and-working-directory" class="section level2">
 <h2><span class="header-section-number">2.2</span> Workspace and working directory</h2>
-<p>One day you will need to quit R, go do something else and return to your analysis later.</p>
-<p>One day you will have multiple analyses going that use R and you want to keep them separate.</p>
-<p>One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world.</p>
+<p>One day you will need to quit R, go do something else and return to your analysis later (this is a very happy day).</p>
+<p>One day you will have multiple analyses going that use R and you want to keep them separate (a not so happy day).</p>
+<p>One day you will need to bring data from the outside world into R and send numerical results and figures from R back out into the world (the happiest of days).</p>
 <p>To handle these real life situations, you need to make two decisions:</p>
 <ul>
 <li>What about your analysis is “real”, i.e. will you save it as your lasting record of what happened?</li>
@@ -335,8 +340,18 @@ argument or maybe the first two. After that, I always use <code>name = value</co
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-basics.html#cb31-1"></a><span class="kw">setwd</span>(<span class="st">&quot;~/myCoolProject&quot;</span>)</span></code></pre></div>
 <p><strong>Although I do not recommend it</strong>, you can also use RStudio’s Files pane to navigate to a directory and then set it as working directory from the menu: <em>Session &gt; Set Working Directory &gt; To Files Pane Location</em>. (You’ll see even more options there). Or within the Files pane, choose “More” and “Set As Working Directory”.</p>
 <p>But there’s a better way. A way that also puts you on the path to managing your R work like an expert.</p>
-
 </div>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">2.3</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create an object called “cool_object” and assign it the number 100.</p></li>
+<li><p>Create a new object called “big_brain” and multiply the object from question one by 15.</p></li>
+<li><p>Print both objects.</p></li>
+<li><p>Use base R functions to return today’s date and print it.</p></li>
+<li><p>Create a sequence of numbers counting from 10 to 100 by 2.</p></li>
+</ol>
+
 </div>
 </div>
             </section>

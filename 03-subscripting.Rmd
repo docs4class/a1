@@ -16,13 +16,13 @@ sd(x)
 summary(x)
 ```
 
-
 which should all be self explanatory. 
 
-It may be, however, that we subsequently learn that the first 6 data correspond to measurements made on one machine, and the second six on another machine.
+It may be, however, that we subsequently learn that the first 6 data points correspond to measurements made on one machine, and the second six on another machine.
 
-This might suggest summarizing the two sets of data separately, so we would need to extract from
+This might lead us to want to summarize the two sets of data separately, so we would need to extract from
 x the two relevant subvectors. This is achieved by subscripting:
+
 ```{r}
 x[1:6]
 x[7:12]

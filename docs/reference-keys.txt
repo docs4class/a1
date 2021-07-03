@@ -15,13 +15,15 @@ summaries-and-subscripting
 introduction-2
 exercises-summaries-and-subscripting
 matrices
-introduction-3
+cbind-and-rbind
+review-questions
+matrix-function
 exercises-2
 playing-with-data-using-mtcars
 practicing-with-mtcars-data-set
 excerises-for-you
 dplyr
-introduction-4
+introduction-3
 single-table-verbs
 the-pipe
 loading-dplyr-and-the-nycflights13-dataset
@@ -35,7 +37,7 @@ viewing-more-output-print-view
 resources
 data-school
 more-dplyr
-introduction-5
+introduction-4
 single-table-verbs-1
 more-with-the-pipe
 loading-dplyr-and-the-starwars-dataset

@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-07-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
-<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>5.1</b> CBind and RBind</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>5.1.1</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>5.2</b> Matrix Function</a></li>
+<li class="chapter" data-level="5.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
 <li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
-<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
 <li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
@@ -182,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
-<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
 <li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
@@ -252,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" style="list-style-type: decimal">
 <li>On 1 page, plot two graphs: a) year (x axis) vs Menâs time (y axis) and b) year (x axis) vs Womenâs time (y axis). Add a best fit line for menâs and womenâs winning times.</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-103-1.png" width="50%" /></p>
+<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-104-1.png" width="50%" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Determine the womenâs time in 2016 according to the line of best fit based solely on the information provided by this best fit line (i.e, do NOT use a prediction function) and use R as a calculator obtain an estimate for the 2016 winning time.</li>
 </ol>

@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-07-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
-<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>5.1</b> CBind and RBind</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>5.1.1</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>5.2</b> Matrix Function</a></li>
+<li class="chapter" data-level="5.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
 <li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
-<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
 <li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
@@ -182,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
-<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
 <li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
@@ -226,12 +229,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="matrices" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Matrices</h1>
-<div id="introduction-3" class="section level2">
-<h2><span class="header-section-number">5.1</span> Introduction</h2>
-<p>Matrices can be created in R in a variety of ways. Perhaps the simplest is to create the columns
-and then glue them together with the command cbind. For example,
-Matrices can be created in R in a variety of ways. Perhaps the simplest is to create the columns
-and then glue them together with the command cbind. For example,</p>
+<div id="cbind-and-rbind" class="section level2">
+<h2><span class="header-section-number">5.1</span> CBind and RBind</h2>
+<p>Matrices can be created in R in a variety of ways. Perhaps the simplest is to create the columns (just a couple of objects)and then glue them together with the command cbind. For example,</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="matrices.html#cb91-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)</span>
 <span id="cb91-2"><a href="matrices.html#cb91-2"></a>y&lt;-<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb91-3"><a href="matrices.html#cb91-3"></a>z&lt;-<span class="kw">cbind</span>(x,y)</span>
@@ -253,65 +253,77 @@ and then glue them together with the command cbind. For example,</p>
 ## [4,] 5 6
 ## [5,] 7 3
 ## [6,] 9 4</code></pre>
+<div id="review-questions" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Review Questions</h3>
+<ol style="list-style-type: decimal">
+<li><p>Create a matrix made up of two columns showing the GPAs and number of hours studied by seven students.</p></li>
+<li><p>Recreate the following matrix in R:</p></li>
+</ol>
+<pre><code>##      x   y
+## [1,] 5 3.4
+## [2,] 7 4.0
+## [3,] 2 2.5
+## [4,] 3 3.2
+## [5,] 8 2.8
+## [6,] 4 3.1
+## [7,] 2 3.6</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Using the appropriate function, combine the two matrices you created above.</li>
+</ol>
+</div>
+</div>
+<div id="matrix-function" class="section level2">
+<h2><span class="header-section-number">5.2</span> Matrix Function</h2>
 <p>Matrices can also be built by explicit construction via the function matrix. For example,</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="matrices.html#cb97-1"></a>z&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">nrow=</span><span class="dv">3</span>)</span></code></pre></div>
-<p>results in a matrix z identical to z above. Notice that the dimension of the matrix is determined
-by the size of the vector and the requirement that the number of rows is 3, as specified by the
-argument nrow=3. As an alternative we could have specified the number of columns with the
-argument ncol=2 (obviously, it is unnecessary to give both). Notice that the matrix is ‘flled up’
-column-wise. If instead you wish to fill up row-wise, add the option byrow=T. For example,</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="matrices.html#cb98-1"></a>z&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">nr=</span><span class="dv">3</span>,<span class="dt">byrow=</span>T)</span>
-<span id="cb98-2"><a href="matrices.html#cb98-2"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="matrices.html#cb98-1"></a>z&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">nrow=</span><span class="dv">3</span>)</span></code></pre></div>
+<p>results in a matrix z identical to z above. Notice that the dimension of the matrix is determined by the size of the vector and the requirement that the number of rows is 3, as specified by the argument nrow=3. As an alternative we could have specified the number of columns with the argument ncol=2 (obviously, it is unnecessary to give both). Notice that the matrix is ‘flled up’ column-wise. If instead you wish to fill up row-wise, add the option byrow=T. For example,</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="matrices.html#cb99-1"></a>z&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">nr=</span><span class="dv">3</span>,<span class="dt">byrow=</span>T)</span>
+<span id="cb99-2"><a href="matrices.html#cb99-2"></a>z</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5    7
 ## [2,]    9    6
 ## [3,]    3    4</code></pre>
-<p>Notice that the argument nrow has been abbreviated to nr. Such abbreviations are always
-possible for function arguments provided it induces no ambiguity - if in doubt always use the full
-argument name.</p>
-<p>As usual, R will try to interpret operations on matrices in a natural way. For example, with z
-as above, and</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="matrices.html#cb100-1"></a>y&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">1</span>),<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">byrow=</span>T)</span>
-<span id="cb100-2"><a href="matrices.html#cb100-2"></a>y</span></code></pre></div>
+<p>Notice that the argument nrow has been abbreviated to nr. Such abbreviations are always possible for function arguments provided it induces no ambiguity - if in doubt always use the full argument name.</p>
+<p>As usual, R will try to interpret operations on matrices in a natural way. For example, with z as above, and</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="matrices.html#cb101-1"></a>y&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">1</span>),<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">byrow=</span>T)</span>
+<span id="cb101-2"><a href="matrices.html#cb101-2"></a>y</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    3
 ## [2,]    0    9
 ## [3,]    5   -1</code></pre>
 <p>we obtain</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="matrices.html#cb102-1"></a>y<span class="op">+</span>z</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="matrices.html#cb103-1"></a>y<span class="op">+</span>z</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    6   10
 ## [2,]    9   15
 ## [3,]    8    3</code></pre>
 <p>and</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="matrices.html#cb104-1"></a>y<span class="op">*</span>z</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="matrices.html#cb105-1"></a>y<span class="op">*</span>z</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5   21
 ## [2,]    0   54
 ## [3,]   15   -4</code></pre>
 <p>Other useful functions on matrices are to transpose a matrix:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="matrices.html#cb106-1"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="matrices.html#cb107-1"></a>z</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5    7
 ## [2,]    9    6
 ## [3,]    3    4</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="matrices.html#cb108-1"></a><span class="kw">t</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="matrices.html#cb109-1"></a><span class="kw">t</span>(z)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    5    9    3
 ## [2,]    7    6    4</code></pre>
-<p>As with vectors it is useful to be able to extract sub-components of matrices. In this case, we
-may wish to pick out individual elements, rows or columns. As before, the [ ] notation is used to
-subscript. The following examples should make things clear:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="matrices.html#cb110-1"></a>z[<span class="dv">1</span>,<span class="dv">1</span>]</span></code></pre></div>
+<p>As with vectors it is useful to be able to extract sub-components of matrices. In this case, wemay wish to pick out individual elements, rows or columns. As before, the [ ] notation is used to subscript. The following examples should make things clear:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="matrices.html#cb111-1"></a>z[<span class="dv">1</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="matrices.html#cb112-1"></a>z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="matrices.html#cb113-1"></a>z[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 6 4</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="matrices.html#cb114-1"></a>z[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="matrices.html#cb115-1"></a>z[,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 7 6 4</code></pre>
 <blockquote>
 
 </blockquote>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="matrices.html#cb116-1"></a>z[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="matrices.html#cb117-1"></a>z[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5    7
 ## [2,]    9    6</code></pre>
@@ -319,7 +331,7 @@ subscript. The following examples should make things clear:</p>
 the integer for either dimension implies that every element in that dimension is selected.</p>
 </div>
 <div id="exercises-2" class="section level2">
-<h2><span class="header-section-number">5.2</span> Exercises</h2>
+<h2><span class="header-section-number">5.3</span> Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Create this matrix in R</li>
 </ol>

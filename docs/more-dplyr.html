@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-07-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
-<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>5.1</b> CBind and RBind</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>5.1.1</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>5.2</b> Matrix Function</a></li>
+<li class="chapter" data-level="5.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
 <li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
-<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
 <li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
@@ -182,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
-<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
 <li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
@@ -226,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="more-dplyr" class="section level1">
 <h1><span class="header-section-number">Chapter 8</span> More DPLYR</h1>
-<div id="introduction-5" class="section level2">
+<div id="introduction-4" class="section level2">
 <h2><span class="header-section-number">8.1</span> Introduction</h2>
 <p>For more help <strong>PLEASE</strong> check out <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">Introduction to dplyr</a> introducing the key functionality of the dplyr package.</p>
 <blockquote>
@@ -262,36 +265,36 @@ Groups of rows:</li>
 </div>
 <div id="loading-dplyr-and-the-starwars-dataset" class="section level2">
 <h2><span class="header-section-number">8.4</span> Loading <code>dplyr</code> and the <code>starwars</code> dataset</h2>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="more-dplyr.html#cb234-1"></a><span class="co"># You should already have done this but you&#39;ll need it</span></span>
-<span id="cb234-2"><a href="more-dplyr.html#cb234-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="more-dplyr.html#cb235-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb235-2"><a href="more-dplyr.html#cb235-2"></a></span>
-<span id="cb235-3"><a href="more-dplyr.html#cb235-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb235-4"><a href="more-dplyr.html#cb235-4"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Droid&quot;</span>)</span>
-<span id="cb235-5"><a href="more-dplyr.html#cb235-5"></a></span>
-<span id="cb235-6"><a href="more-dplyr.html#cb235-6"></a></span>
-<span id="cb235-7"><a href="more-dplyr.html#cb235-7"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb235-8"><a href="more-dplyr.html#cb235-8"></a><span class="st">  </span><span class="kw">select</span>(name, <span class="kw">ends_with</span>(<span class="st">&quot;color&quot;</span>))</span>
-<span id="cb235-9"><a href="more-dplyr.html#cb235-9"></a></span>
-<span id="cb235-10"><a href="more-dplyr.html#cb235-10"></a></span>
-<span id="cb235-11"><a href="more-dplyr.html#cb235-11"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb235-12"><a href="more-dplyr.html#cb235-12"></a><span class="st">  </span><span class="kw">mutate</span>(name, <span class="dt">bmi =</span> mass <span class="op">/</span><span class="st"> </span>((height <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)  <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb235-13"><a href="more-dplyr.html#cb235-13"></a><span class="st">  </span><span class="kw">select</span>(name<span class="op">:</span>mass, bmi)</span>
-<span id="cb235-14"><a href="more-dplyr.html#cb235-14"></a></span>
-<span id="cb235-15"><a href="more-dplyr.html#cb235-15"></a></span>
-<span id="cb235-16"><a href="more-dplyr.html#cb235-16"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb235-17"><a href="more-dplyr.html#cb235-17"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mass))</span>
-<span id="cb235-18"><a href="more-dplyr.html#cb235-18"></a></span>
-<span id="cb235-19"><a href="more-dplyr.html#cb235-19"></a>starwars <span class="op">%&gt;%</span></span>
-<span id="cb235-20"><a href="more-dplyr.html#cb235-20"></a><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span></span>
-<span id="cb235-21"><a href="more-dplyr.html#cb235-21"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb235-22"><a href="more-dplyr.html#cb235-22"></a>    <span class="dt">n =</span> <span class="kw">n</span>(),</span>
-<span id="cb235-23"><a href="more-dplyr.html#cb235-23"></a>    <span class="dt">mass =</span> <span class="kw">mean</span>(mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb235-24"><a href="more-dplyr.html#cb235-24"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb235-25"><a href="more-dplyr.html#cb235-25"></a><span class="st">  </span><span class="kw">filter</span>(</span>
-<span id="cb235-26"><a href="more-dplyr.html#cb235-26"></a>    n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>,</span>
-<span id="cb235-27"><a href="more-dplyr.html#cb235-27"></a>    mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span></span>
-<span id="cb235-28"><a href="more-dplyr.html#cb235-28"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="more-dplyr.html#cb235-1"></a><span class="co"># You should already have done this but you&#39;ll need it</span></span>
+<span id="cb235-2"><a href="more-dplyr.html#cb235-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="more-dplyr.html#cb236-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb236-2"><a href="more-dplyr.html#cb236-2"></a></span>
+<span id="cb236-3"><a href="more-dplyr.html#cb236-3"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb236-4"><a href="more-dplyr.html#cb236-4"></a><span class="st">  </span><span class="kw">filter</span>(species <span class="op">==</span><span class="st"> &quot;Droid&quot;</span>)</span>
+<span id="cb236-5"><a href="more-dplyr.html#cb236-5"></a></span>
+<span id="cb236-6"><a href="more-dplyr.html#cb236-6"></a></span>
+<span id="cb236-7"><a href="more-dplyr.html#cb236-7"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb236-8"><a href="more-dplyr.html#cb236-8"></a><span class="st">  </span><span class="kw">select</span>(name, <span class="kw">ends_with</span>(<span class="st">&quot;color&quot;</span>))</span>
+<span id="cb236-9"><a href="more-dplyr.html#cb236-9"></a></span>
+<span id="cb236-10"><a href="more-dplyr.html#cb236-10"></a></span>
+<span id="cb236-11"><a href="more-dplyr.html#cb236-11"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb236-12"><a href="more-dplyr.html#cb236-12"></a><span class="st">  </span><span class="kw">mutate</span>(name, <span class="dt">bmi =</span> mass <span class="op">/</span><span class="st"> </span>((height <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)  <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb236-13"><a href="more-dplyr.html#cb236-13"></a><span class="st">  </span><span class="kw">select</span>(name<span class="op">:</span>mass, bmi)</span>
+<span id="cb236-14"><a href="more-dplyr.html#cb236-14"></a></span>
+<span id="cb236-15"><a href="more-dplyr.html#cb236-15"></a></span>
+<span id="cb236-16"><a href="more-dplyr.html#cb236-16"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb236-17"><a href="more-dplyr.html#cb236-17"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mass))</span>
+<span id="cb236-18"><a href="more-dplyr.html#cb236-18"></a></span>
+<span id="cb236-19"><a href="more-dplyr.html#cb236-19"></a>starwars <span class="op">%&gt;%</span></span>
+<span id="cb236-20"><a href="more-dplyr.html#cb236-20"></a><span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span></span>
+<span id="cb236-21"><a href="more-dplyr.html#cb236-21"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb236-22"><a href="more-dplyr.html#cb236-22"></a>    <span class="dt">n =</span> <span class="kw">n</span>(),</span>
+<span id="cb236-23"><a href="more-dplyr.html#cb236-23"></a>    <span class="dt">mass =</span> <span class="kw">mean</span>(mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb236-24"><a href="more-dplyr.html#cb236-24"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb236-25"><a href="more-dplyr.html#cb236-25"></a><span class="st">  </span><span class="kw">filter</span>(</span>
+<span id="cb236-26"><a href="more-dplyr.html#cb236-26"></a>    n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb236-27"><a href="more-dplyr.html#cb236-27"></a>    mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span></span>
+<span id="cb236-28"><a href="more-dplyr.html#cb236-28"></a>  )</span></code></pre></div>
 </div>
 <div id="starwars-excercises" class="section level2">
 <h2><span class="header-section-number">8.5</span> <code>starwars</code> Excercises</h2>
@@ -313,7 +316,7 @@ Groups of rows:</li>
 </ol>
 
 <p>#Comprehensive DPLYR Practice</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="more-dplyr.html#cb236-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;nycflights13&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="more-dplyr.html#cb237-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;nycflights13&quot;</span>)</span></code></pre></div>
 </div>
 <div id="nycflights13-excercises" class="section level2">
 <h2><span class="header-section-number">8.6</span> <code>nycflights13</code> Excercises</h2>

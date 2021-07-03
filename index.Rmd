@@ -12,7 +12,7 @@ description: "This is a book that contains all of the materials and lessons for 
 
 # Introduction
 
-This is a book written in **Markdown** which contains all the materials and lessons for data analytics one. If you miss a day, want to review something we covered in class, or for any reason want to look for a worksheet, this is where you can go. 
+This is a book written in [**Markdown**](https://vimeo.com/178485416) which contains all the materials and lessons for data analytics one. If you miss a day, want to review something we covered in class, or for any reason want to look for a worksheet, this is where you can go. 
 
 Each chapter contains a different topic we will cover during the semester. Some larger topics are split into two chapters to make accessing the materials a little more intuitive. 
 
@@ -50,14 +50,14 @@ editor or something similar.
 
 There are a variety of different applications for R. Yes, the more obvious ones would be things such as machine learning, artificial intelligence, and data mining. However, the possibilities with this program are honestly limitless. Take a look at this rather funny example of data analytics being used by retail giant Target to predict whether women were pregnant and how it put one teenager in a rather uncomfortable situation.
 
-Click Target Pregnancy Model Story
+[Click for Target Pregnancy Model Story](https://www.forbes.com/sites/kashmirhill/2012/02/16/how-target-figured-out-a-teen-girl-was-pregnant-before-her-father-did/)
 
 What other applications are there? Well, are you interested in sports? Did you know that almost all professional athletic teams have dedicated teams of data scientists whose job it is to watch for patterns and collect data from the games in order to help the coaches make better calls and more effective plays? 
 
-Click Data Analytics in the NBA Story
+[Click Data Analytics in the NBA Story](https://digital.hbs.edu/platform-digit/submission/how-data-analytics-is-revolutionizing-the-nba/)
 
 Presbyterian College has a very high number of STEM majors. Specifically, biology is one of the most declared majors on campus. Data science is used by biologists and many other scientists around the world to help create data and compelling visualizations in order to convey their findings. Check out this interesting story about data science being used in the world of biology. 
 
-Click for Computational Biology Story
+[Click for Computational Biology Story](https://www.datasciencecentral.com/profiles/blogs/the-next-big-thing-in-data-science-is-biology)
 
 As you can no doubt see, it is more than likely safe to say that data science will one day be a major factor in almost every field some day. Data already surrounds us and is used by companies all over the world for a variety of tasks. By creating a foundation of these skills for yourself, regardless of whether your job title contains the words "data science", you will be an asset to your company. Simply having the ability to understand and interpret data is one of the most sought after skills in the corporate sphere today. 

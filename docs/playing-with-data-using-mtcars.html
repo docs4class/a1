@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-06-24" />
+<meta name="date" content="2021-07-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
-<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.2</b> Exercises</a></li>
+<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>5.1</b> CBind and RBind</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>5.1.1</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>5.2</b> Matrix Function</a></li>
+<li class="chapter" data-level="5.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.3</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
 <li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
 <li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
-<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
 <li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
@@ -182,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
-<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
 <li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
 <li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
@@ -232,11 +235,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Read in <code>mtcars</code></li>
 </ol>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="playing-with-data-using-mtcars.html#cb124-1"></a><span class="kw">data</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="playing-with-data-using-mtcars.html#cb125-1"></a><span class="kw">data</span>(mtcars)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>View first few rows and last few rows of mtcars dataframe using functions <code>head()</code> and <code>tail()</code></li>
 </ol>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="playing-with-data-using-mtcars.html#cb125-1"></a><span class="kw">head</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="playing-with-data-using-mtcars.html#cb126-1"></a><span class="kw">head</span>(mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -244,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="playing-with-data-using-mtcars.html#cb127-1"></a><span class="kw">tail</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="playing-with-data-using-mtcars.html#cb128-1"></a><span class="kw">tail</span>(mtcars)</span></code></pre></div>
 <pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
 ## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
 ## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
@@ -255,10 +258,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" style="list-style-type: decimal">
 <li>Some info about mtcars dataframe using function <code>colnames()</code>, <code>rownames()</code>, and <code>dim()</code></li>
 </ol>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="playing-with-data-using-mtcars.html#cb129-1"></a><span class="kw">colnames</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="playing-with-data-using-mtcars.html#cb130-1"></a><span class="kw">colnames</span>(mtcars)</span></code></pre></div>
 <pre><code>##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
 ## [11] &quot;carb&quot;</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="playing-with-data-using-mtcars.html#cb131-1"></a><span class="kw">rownames</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="playing-with-data-using-mtcars.html#cb132-1"></a><span class="kw">rownames</span>(mtcars)</span></code></pre></div>
 <pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
 ##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
 ##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
@@ -270,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
 ## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
 ## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="playing-with-data-using-mtcars.html#cb133-1"></a><span class="kw">dim</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="playing-with-data-using-mtcars.html#cb134-1"></a><span class="kw">dim</span>(mtcars)</span></code></pre></div>
 <pre><code>## [1] 32 11</code></pre>
 </div>
 <div id="excerises-for-you" class="section level2">
@@ -281,11 +284,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What variable has a 3rd quartile value of 180.0?</li>
 <li>Create this figure</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Create and explain what this means</li>
 </ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Create and explain what this means</li>
 </ol>

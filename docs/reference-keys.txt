@@ -55,3 +55,15 @@ quiz-three
 practice-final-exam
 meter-freestyle-olympic-winning-time-seconds
 starwars-fun
+r-vs.-excel
+both-are-useful
+differences-between-r-and-excel
+ease-of-use-learning-the-software
+replicating-analysis
+visualization
+packages
+careers
+summary-using-r-and-excel
+statistics-and-summaries
+statistical-analysis
+anscombes-quartet

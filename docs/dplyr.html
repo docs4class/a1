@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 DPLYR | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 8 DPLYR | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 DPLYR | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 8 DPLYR | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 DPLYR | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 8 DPLYR | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Authored and Edited by: Dr. Turner and Seth Cooper" />
 
 
-<meta name="date" content="2021-07-03" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="playing-with-data-using-mtcars.html"/>
 <link rel="next" href="more-dplyr.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,25 +51,23 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -137,75 +137,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Analytics One Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-r"><i class="fa fa-check"></i><b>1.1</b> About R</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-good-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What Good is Data Science?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a><ul>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics and workflows</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basics-of-working-with-r-at-the-command-line-and-rstudio-goodies"><i class="fa fa-check"></i><b>2.1</b> Basics of working with R at the command line and RStudio goodies</a></li>
-<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#workspace-and-working-directory"><i class="fa fa-check"></i><b>2.2</b> Workspace and working directory</a><ul>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#workspace-and-working-directory"><i class="fa fa-check"></i><b>2.2</b> Workspace and working directory</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="r-basics.html"><a href="r-basics.html#workspace-.rdata"><i class="fa fa-check"></i><b>2.2.1</b> Workspace, <code>.RData</code></a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-basics.html"><a href="r-basics.html#working-directory"><i class="fa fa-check"></i><b>2.2.2</b> Working directory</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#exercises"><i class="fa fa-check"></i><b>2.3</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>3</b> Objects and Arithmetic</a><ul>
-<li class="chapter" data-level="3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>3.2</b> Basic Functions</a></li>
-<li class="chapter" data-level="3.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
+<li class="chapter" data-level="3" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html"><i class="fa fa-check"></i><b>3</b> R vs. Excel</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#both-are-useful"><i class="fa fa-check"></i><b>3.1</b> Both are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#differences-between-r-and-excel"><i class="fa fa-check"></i><b>3.2</b> Differences Between R and Excel</a></li>
+<li class="chapter" data-level="3.3" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#ease-of-use-learning-the-software"><i class="fa fa-check"></i><b>3.3</b> Ease of Use &amp; Learning the Software</a></li>
+<li class="chapter" data-level="3.4" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#replicating-analysis"><i class="fa fa-check"></i><b>3.4</b> Replicating Analysis</a></li>
+<li class="chapter" data-level="3.5" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#visualization"><i class="fa fa-check"></i><b>3.5</b> Visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#packages"><i class="fa fa-check"></i><b>3.6</b> Packages</a></li>
+<li class="chapter" data-level="3.7" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#careers"><i class="fa fa-check"></i><b>3.7</b> Careers</a></li>
+<li class="chapter" data-level="3.8" data-path="r-vs.-excel.html"><a href="r-vs.-excel.html#summary-using-r-and-excel"><i class="fa fa-check"></i><b>3.8</b> Summary – Using R and Excel</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>4</b> Summaries and Subscripting</a><ul>
-<li class="chapter" data-level="4.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>4.2</b> Exercises (Summaries and Subscripting)</a></li>
+<li class="chapter" data-level="4" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html"><i class="fa fa-check"></i><b>4</b> Objects and Arithmetic</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#basic-functions"><i class="fa fa-check"></i><b>4.2</b> Basic Functions</a></li>
+<li class="chapter" data-level="4.3" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#statistics-and-summaries"><i class="fa fa-check"></i><b>4.3</b> Statistics and Summaries</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#statistical-analysis"><i class="fa fa-check"></i><b>4.3.1</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="4.3.2" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#anscombes-quartet"><i class="fa fa-check"></i><b>4.3.2</b> Anscombe’s Quartet</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>5</b> Matrices</a><ul>
-<li class="chapter" data-level="5.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>5.1</b> CBind and RBind</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>5.1.1</b> Review Questions</a></li>
+<li class="chapter" data-level="4.4" data-path="objects-and-arithmetic.html"><a href="objects-and-arithmetic.html#exercises-1"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>5.2</b> Matrix Function</a></li>
-<li class="chapter" data-level="5.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>5.3</b> Exercises</a></li>
+<li class="chapter" data-level="5" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html"><i class="fa fa-check"></i><b>5</b> Summaries and Subscripting</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="summaries-and-subscripting.html"><a href="summaries-and-subscripting.html#exercises-summaries-and-subscripting"><i class="fa fa-check"></i><b>5.2</b> Exercises (Summaries and Subscripting)</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>6</b> Playing With Data (Using mtcars)</a><ul>
-<li class="chapter" data-level="6.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>6.1</b> Practicing with <code>mtcars</code> data set</a></li>
-<li class="chapter" data-level="6.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>6.2</b> Excerises for you:</a></li>
+<li class="chapter" data-level="6" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>6</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="matrices.html"><a href="matrices.html#cbind-and-rbind"><i class="fa fa-check"></i><b>6.1</b> CBind and RBind</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="matrices.html"><a href="matrices.html#review-questions"><i class="fa fa-check"></i><b>6.1.1</b> Review Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>7</b> DPLYR</a><ul>
-<li class="chapter" data-level="7.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>7.2</b> Single table verbs</a></li>
-<li class="chapter" data-level="7.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>7.3</b> The pipe</a></li>
-<li class="chapter" data-level="7.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>7.4</b> Loading dplyr and the nycflights13 dataset</a></li>
-<li class="chapter" data-level="7.5" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>7.5</b> Choosing columns: select, rename</a></li>
-<li class="chapter" data-level="7.6" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>7.6</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
-<li class="chapter" data-level="7.7" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>7.7</b> Adding new variables: mutate, transmute, add_rownames</a></li>
-<li class="chapter" data-level="7.8" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>7.8</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
-<li class="chapter" data-level="7.9" data-path="dplyr.html"><a href="dplyr.html#creating-data-frames-data_frame"><i class="fa fa-check"></i><b>7.9</b> Creating data frames: data_frame</a></li>
-<li class="chapter" data-level="7.10" data-path="dplyr.html"><a href="dplyr.html#joining-merging-tables-left_join-right_join-inner_join-full_join-semi_join-anti_join"><i class="fa fa-check"></i><b>7.10</b> Joining (merging) tables: left_join, right_join, inner_join, full_join, semi_join, anti_join</a></li>
-<li class="chapter" data-level="7.11" data-path="dplyr.html"><a href="dplyr.html#viewing-more-output-print-view"><i class="fa fa-check"></i><b>7.11</b> Viewing more output: print, View</a></li>
-<li class="chapter" data-level="7.12" data-path="dplyr.html"><a href="dplyr.html#resources"><i class="fa fa-check"></i><b>7.12</b> Resources</a></li>
-<li class="chapter" data-level="7.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>7.13</b> Data School</a></li>
+<li class="chapter" data-level="6.2" data-path="matrices.html"><a href="matrices.html#matrix-function"><i class="fa fa-check"></i><b>6.2</b> Matrix Function</a></li>
+<li class="chapter" data-level="6.3" data-path="matrices.html"><a href="matrices.html#exercises-2"><i class="fa fa-check"></i><b>6.3</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>8</b> More DPLYR</a><ul>
-<li class="chapter" data-level="8.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
-<li class="chapter" data-level="8.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>8.3</b> More with the pipe</a></li>
-<li class="chapter" data-level="8.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
-<li class="chapter" data-level="8.5" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises"><i class="fa fa-check"></i><b>8.5</b> <code>starwars</code> Excercises</a></li>
-<li class="chapter" data-level="8.6" data-path="more-dplyr.html"><a href="more-dplyr.html#nycflights13-excercises"><i class="fa fa-check"></i><b>8.6</b> <code>nycflights13</code> Excercises</a></li>
-<li class="chapter" data-level="8.7" data-path="more-dplyr.html"><a href="more-dplyr.html#storms-excercises"><i class="fa fa-check"></i><b>8.7</b> <code>storms</code> Excercises</a></li>
-<li class="chapter" data-level="8.8" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises-1"><i class="fa fa-check"></i><b>8.8</b> <code>starwars</code> Excercises</a></li>
+<li class="chapter" data-level="7" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html"><i class="fa fa-check"></i><b>7</b> Playing With Data (Using mtcars)</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#practicing-with-mtcars-data-set"><i class="fa fa-check"></i><b>7.1</b> Practicing with <code>mtcars</code> data set</a></li>
+<li class="chapter" data-level="7.2" data-path="playing-with-data-using-mtcars.html"><a href="playing-with-data-using-mtcars.html#excerises-for-you"><i class="fa fa-check"></i><b>7.2</b> Excerises for you:</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html"><i class="fa fa-check"></i><b>9</b> GDH Ice Cream</a><ul>
-<li class="chapter" data-level="9.1" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#problem-introduction"><i class="fa fa-check"></i><b>9.1</b> Problem Introduction</a></li>
-<li class="chapter" data-level="9.2" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#assignment"><i class="fa fa-check"></i><b>9.2</b> Assignment</a></li>
+<li class="chapter" data-level="8" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>8</b> DPLYR</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dplyr.html"><a href="dplyr.html#introduction-3"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="dplyr.html"><a href="dplyr.html#single-table-verbs"><i class="fa fa-check"></i><b>8.2</b> Single table verbs</a></li>
+<li class="chapter" data-level="8.3" data-path="dplyr.html"><a href="dplyr.html#the-pipe"><i class="fa fa-check"></i><b>8.3</b> The pipe</a></li>
+<li class="chapter" data-level="8.4" data-path="dplyr.html"><a href="dplyr.html#loading-dplyr-and-the-nycflights13-dataset"><i class="fa fa-check"></i><b>8.4</b> Loading dplyr and the nycflights13 dataset</a></li>
+<li class="chapter" data-level="8.5" data-path="dplyr.html"><a href="dplyr.html#choosing-columns-select-rename"><i class="fa fa-check"></i><b>8.5</b> Choosing columns: select, rename</a></li>
+<li class="chapter" data-level="8.6" data-path="dplyr.html"><a href="dplyr.html#choosing-rows-filter-between-slice-sample_n-top_n-distinct"><i class="fa fa-check"></i><b>8.6</b> Choosing rows: filter, between, slice, sample_n, top_n, distinct</a></li>
+<li class="chapter" data-level="8.7" data-path="dplyr.html"><a href="dplyr.html#adding-new-variables-mutate-transmute-add_rownames"><i class="fa fa-check"></i><b>8.7</b> Adding new variables: mutate, transmute, add_rownames</a></li>
+<li class="chapter" data-level="8.8" data-path="dplyr.html"><a href="dplyr.html#grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup"><i class="fa fa-check"></i><b>8.8</b> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</a></li>
+<li class="chapter" data-level="8.9" data-path="dplyr.html"><a href="dplyr.html#creating-data-frames-data_frame"><i class="fa fa-check"></i><b>8.9</b> Creating data frames: data_frame</a></li>
+<li class="chapter" data-level="8.10" data-path="dplyr.html"><a href="dplyr.html#joining-merging-tables-left_join-right_join-inner_join-full_join-semi_join-anti_join"><i class="fa fa-check"></i><b>8.10</b> Joining (merging) tables: left_join, right_join, inner_join, full_join, semi_join, anti_join</a></li>
+<li class="chapter" data-level="8.11" data-path="dplyr.html"><a href="dplyr.html#viewing-more-output-print-view"><i class="fa fa-check"></i><b>8.11</b> Viewing more output: print, View</a></li>
+<li class="chapter" data-level="8.12" data-path="dplyr.html"><a href="dplyr.html#resources"><i class="fa fa-check"></i><b>8.12</b> Resources</a></li>
+<li class="chapter" data-level="8.13" data-path="dplyr.html"><a href="dplyr.html#data-school"><i class="fa fa-check"></i><b>8.13</b> Data School</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html"><i class="fa fa-check"></i><b>10</b> Data Analytics I Quizzes</a><ul>
-<li class="chapter" data-level="10.1" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-one-linear-regression"><i class="fa fa-check"></i><b>10.1</b> Quiz One (Linear Regression)</a></li>
-<li class="chapter" data-level="10.2" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-two"><i class="fa fa-check"></i><b>10.2</b> Quiz Two</a></li>
-<li class="chapter" data-level="10.3" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-three"><i class="fa fa-check"></i><b>10.3</b> Quiz Three</a></li>
+<li class="chapter" data-level="9" data-path="more-dplyr.html"><a href="more-dplyr.html"><i class="fa fa-check"></i><b>9</b> More DPLYR</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="more-dplyr.html"><a href="more-dplyr.html#introduction-4"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="more-dplyr.html"><a href="more-dplyr.html#single-table-verbs-1"><i class="fa fa-check"></i><b>9.2</b> Single table verbs</a></li>
+<li class="chapter" data-level="9.3" data-path="more-dplyr.html"><a href="more-dplyr.html#more-with-the-pipe"><i class="fa fa-check"></i><b>9.3</b> More with the pipe</a></li>
+<li class="chapter" data-level="9.4" data-path="more-dplyr.html"><a href="more-dplyr.html#loading-dplyr-and-the-starwars-dataset"><i class="fa fa-check"></i><b>9.4</b> Loading <code>dplyr</code> and the <code>starwars</code> dataset</a></li>
+<li class="chapter" data-level="9.5" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises"><i class="fa fa-check"></i><b>9.5</b> <code>starwars</code> Excercises</a></li>
+<li class="chapter" data-level="9.6" data-path="more-dplyr.html"><a href="more-dplyr.html#nycflights13-excercises"><i class="fa fa-check"></i><b>9.6</b> <code>nycflights13</code> Excercises</a></li>
+<li class="chapter" data-level="9.7" data-path="more-dplyr.html"><a href="more-dplyr.html#storms-excercises"><i class="fa fa-check"></i><b>9.7</b> <code>storms</code> Excercises</a></li>
+<li class="chapter" data-level="9.8" data-path="more-dplyr.html"><a href="more-dplyr.html#starwars-excercises-1"><i class="fa fa-check"></i><b>9.8</b> <code>starwars</code> Excercises</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="practice-final-exam.html"><a href="practice-final-exam.html"><i class="fa fa-check"></i><b>11</b> Practice Final Exam</a><ul>
-<li class="chapter" data-level="11.1" data-path="practice-final-exam.html"><a href="practice-final-exam.html#meter-freestyle-olympic-winning-time-seconds"><i class="fa fa-check"></i><b>11.1</b> 100-Meter Freestyle Olympic Winning Time (seconds)</a></li>
-<li class="chapter" data-level="11.2" data-path="practice-final-exam.html"><a href="practice-final-exam.html#starwars-fun"><i class="fa fa-check"></i><b>11.2</b> Starwars fun</a></li>
+<li class="chapter" data-level="10" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html"><i class="fa fa-check"></i><b>10</b> GDH Ice Cream</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#problem-introduction"><i class="fa fa-check"></i><b>10.1</b> Problem Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="gdh-ice-cream.html"><a href="gdh-ice-cream.html#assignment"><i class="fa fa-check"></i><b>10.2</b> Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>11</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="linear-regression.html"><a href="linear-regression.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.2" data-path="linear-regression.html"><a href="linear-regression.html#model-structure"><i class="fa fa-check"></i><b>11.2</b> Model Structure</a></li>
+<li class="chapter" data-level="11.3" data-path="linear-regression.html"><a href="linear-regression.html#interpretation-of-the-model"><i class="fa fa-check"></i><b>11.3</b> Interpretation of the Model</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="linear-regression.html"><a href="linear-regression.html#p-values"><i class="fa fa-check"></i><b>11.3.1</b> P-Values</a></li>
+<li class="chapter" data-level="11.3.2" data-path="linear-regression.html"><a href="linear-regression.html#multiple-r-squared"><i class="fa fa-check"></i><b>11.3.2</b> Multiple R-Squared</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="linear-regression.html"><a href="linear-regression.html#applying-the-model-to-make-predictions"><i class="fa fa-check"></i><b>11.4</b> Applying the Model to Make Predictions</a></li>
+<li class="chapter" data-level="11.5" data-path="linear-regression.html"><a href="linear-regression.html#review-questions-1"><i class="fa fa-check"></i><b>11.5</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>12</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="logistic-regression.html"><a href="logistic-regression.html#introduction-5"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
+<li class="chapter" data-level="12.2" data-path="logistic-regression.html"><a href="logistic-regression.html#training-data-and-test-data"><i class="fa fa-check"></i><b>12.2</b> Training Data and Test Data</a></li>
+<li class="chapter" data-level="12.3" data-path="logistic-regression.html"><a href="logistic-regression.html#model-structure-1"><i class="fa fa-check"></i><b>12.3</b> Model Structure</a></li>
+<li class="chapter" data-level="12.4" data-path="logistic-regression.html"><a href="logistic-regression.html#model-interpretation"><i class="fa fa-check"></i><b>12.4</b> Model Interpretation</a></li>
+<li class="chapter" data-level="12.5" data-path="logistic-regression.html"><a href="logistic-regression.html#review-questions-2"><i class="fa fa-check"></i><b>12.5</b> Review Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="dealing-with-errors.html"><a href="dealing-with-errors.html"><i class="fa fa-check"></i><b>13</b> Dealing with Errors</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="dealing-with-errors.html"><a href="dealing-with-errors.html#introduction-6"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="dealing-with-errors.html"><a href="dealing-with-errors.html#troubleshooting-typical-errors"><i class="fa fa-check"></i><b>13.2</b> Troubleshooting Typical Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html"><i class="fa fa-check"></i><b>14</b> Data Analytics I Quizzes</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-one-linear-regression"><i class="fa fa-check"></i><b>14.1</b> Quiz One (Linear Regression)</a></li>
+<li class="chapter" data-level="14.2" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-two"><i class="fa fa-check"></i><b>14.2</b> Quiz Two</a></li>
+<li class="chapter" data-level="14.3" data-path="data-analytics-i-quizzes.html"><a href="data-analytics-i-quizzes.html#quiz-three"><i class="fa fa-check"></i><b>14.3</b> Quiz Three</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="practice-final-exam.html"><a href="practice-final-exam.html"><i class="fa fa-check"></i><b>15</b> Practice Final Exam</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="practice-final-exam.html"><a href="practice-final-exam.html#meter-freestyle-olympic-winning-time-seconds"><i class="fa fa-check"></i><b>15.1</b> 100-Meter Freestyle Olympic Winning Time (seconds)</a></li>
+<li class="chapter" data-level="15.2" data-path="practice-final-exam.html"><a href="practice-final-exam.html#starwars-fun"><i class="fa fa-check"></i><b>15.2</b> Starwars fun</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -227,17 +281,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dplyr" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> DPLYR</h1>
-<div id="introduction-3" class="section level2">
-<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<div id="dplyr" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> DPLYR</h1>
+<div id="introduction-3" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
 <p>For more help <strong>PLEASE</strong> check out <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">Introduction to dplyr</a> introducing the key functionality of the dplyr package.</p>
 <blockquote>
 <p>Your life is about to change. For the better, even.</p>
 </blockquote>
 </div>
-<div id="single-table-verbs" class="section level2">
-<h2><span class="header-section-number">7.2</span> Single table verbs</h2>
+<div id="single-table-verbs" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Single table verbs</h2>
 <p><code>dplyr</code> aims to provide a function for each basic verb of data manipulation. These verbs can be organised into three categories based on the component of the dataset that they work with:</p>
 <p>Rows:</p>
 <ul>
@@ -255,18 +309,18 @@ Groups of rows:</li>
 <li><code>summarise()</code> collapses a group into a single row. It’s not that useful until we learn the <code>group_by()</code> verb below.</li>
 </ul>
 </div>
-<div id="the-pipe" class="section level2">
-<h2><span class="header-section-number">7.3</span> The pipe</h2>
+<div id="the-pipe" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> The pipe</h2>
 <p>All of the <code>dplyr</code> functions take a data frame (or tibble) as the first argument. Rather than forcing the user to either save intermediate objects or nest functions, dplyr provides the <code>%&gt;%</code> operator from magrittr. x %&gt;% f(y) turns into f(x, y) so the result from one step is then “piped” into the next step. You can use the pipe to rewrite multiple operations that you can read left-to-right, top-to-bottom (reading the pipe operator as “then”).</p>
 </div>
-<div id="loading-dplyr-and-the-nycflights13-dataset" class="section level2">
-<h2><span class="header-section-number">7.4</span> Loading dplyr and the nycflights13 dataset</h2>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="dplyr.html#cb137-1"></a><span class="co"># load packages</span></span>
-<span id="cb137-2"><a href="dplyr.html#cb137-2"></a><span class="kw">suppressMessages</span>(<span class="kw">library</span>(dplyr))</span>
-<span id="cb137-3"><a href="dplyr.html#cb137-3"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb137-4"><a href="dplyr.html#cb137-4"></a></span>
-<span id="cb137-5"><a href="dplyr.html#cb137-5"></a><span class="co"># print the flights dataset from nycflights13</span></span>
-<span id="cb137-6"><a href="dplyr.html#cb137-6"></a><span class="kw">head</span>(flights)</span></code></pre></div>
+<div id="loading-dplyr-and-the-nycflights13-dataset" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Loading dplyr and the nycflights13 dataset</h2>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="dplyr.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb145-2"><a href="dplyr.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb145-3"><a href="dplyr.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb145-4"><a href="dplyr.html#cb145-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-5"><a href="dplyr.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print the flights dataset from nycflights13</span></span>
+<span id="cb145-6"><a href="dplyr.html#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 19
 ##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -280,10 +334,10 @@ Groups of rows:</li>
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 </div>
-<div id="choosing-columns-select-rename" class="section level2">
-<h2><span class="header-section-number">7.5</span> Choosing columns: select, rename</h2>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="dplyr.html#cb139-1"></a><span class="co"># besides just using select() to pick columns...</span></span>
-<span id="cb139-2"><a href="dplyr.html#cb139-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(carrier, flight)</span></code></pre></div>
+<div id="choosing-columns-select-rename" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Choosing columns: select, rename</h2>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="dplyr.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># besides just using select() to pick columns...</span></span>
+<span id="cb147-2"><a href="dplyr.html#cb147-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(carrier, flight)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 2
 ##    carrier flight
 ##    &lt;chr&gt;    &lt;int&gt;
@@ -298,8 +352,8 @@ Groups of rows:</li>
 ##  9 B6          79
 ## 10 AA         301
 ## # ... with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="dplyr.html#cb141-1"></a><span class="co"># ...you can use the minus sign to hide columns</span></span>
-<span id="cb141-2"><a href="dplyr.html#cb141-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>month, <span class="op">-</span>day)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="dplyr.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...you can use the minus sign to hide columns</span></span>
+<span id="cb149-2"><a href="dplyr.html#cb149-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>month, <span class="sc">-</span>day)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 17
 ##     year dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay
 ##    &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
@@ -316,14 +370,14 @@ Groups of rows:</li>
 ## # ... with 336,766 more rows, and 10 more variables: carrier &lt;chr&gt;,
 ## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
 ## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="dplyr.html#cb143-1"></a><span class="co"># hide a range of columns</span></span>
-<span id="cb143-2"><a href="dplyr.html#cb143-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>(dep_time<span class="op">:</span>arr_delay))</span>
-<span id="cb143-3"><a href="dplyr.html#cb143-3"></a></span>
-<span id="cb143-4"><a href="dplyr.html#cb143-4"></a><span class="co"># hide any column with a matching name</span></span>
-<span id="cb143-5"><a href="dplyr.html#cb143-5"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">contains</span>(<span class="st">&quot;time&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="dplyr.html#cb144-1"></a><span class="co"># pick columns using a character vector of column names</span></span>
-<span id="cb144-2"><a href="dplyr.html#cb144-2"></a>cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;flight&quot;</span>, <span class="st">&quot;tailnum&quot;</span>)</span>
-<span id="cb144-3"><a href="dplyr.html#cb144-3"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">one_of</span>(cols))</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="dplyr.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hide a range of columns</span></span>
+<span id="cb151-2"><a href="dplyr.html#cb151-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>(dep_time<span class="sc">:</span>arr_delay))</span>
+<span id="cb151-3"><a href="dplyr.html#cb151-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-4"><a href="dplyr.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="co"># hide any column with a matching name</span></span>
+<span id="cb151-5"><a href="dplyr.html#cb151-5" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;time&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="dplyr.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pick columns using a character vector of column names</span></span>
+<span id="cb152-2"><a href="dplyr.html#cb152-2" aria-hidden="true" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;flight&quot;</span>, <span class="st">&quot;tailnum&quot;</span>)</span>
+<span id="cb152-3"><a href="dplyr.html#cb152-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">one_of</span>(cols))</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 3
 ##    carrier flight tailnum
 ##    &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  
@@ -338,8 +392,8 @@ Groups of rows:</li>
 ##  9 B6          79 N593JB 
 ## 10 AA         301 N3ALAA 
 ## # ... with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="dplyr.html#cb146-1"></a><span class="co"># select() can be used to rename columns, though all columns not mentioned are dropped</span></span>
-<span id="cb146-2"><a href="dplyr.html#cb146-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dt">tail =</span> tailnum)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="dplyr.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select() can be used to rename columns, though all columns not mentioned are dropped</span></span>
+<span id="cb154-2"><a href="dplyr.html#cb154-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">tail =</span> tailnum)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 1
 ##    tail  
 ##    &lt;chr&gt; 
@@ -354,8 +408,8 @@ Groups of rows:</li>
 ##  9 N593JB
 ## 10 N3ALAA
 ## # ... with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="dplyr.html#cb148-1"></a><span class="co"># rename() does the same thing, except all columns not mentioned are kept</span></span>
-<span id="cb148-2"><a href="dplyr.html#cb148-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">tail =</span> tailnum)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="dplyr.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rename() does the same thing, except all columns not mentioned are kept</span></span>
+<span id="cb156-2"><a href="dplyr.html#cb156-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">tail =</span> tailnum)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -373,10 +427,10 @@ Groups of rows:</li>
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tail &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 </div>
-<div id="choosing-rows-filter-between-slice-sample_n-top_n-distinct" class="section level2">
-<h2><span class="header-section-number">7.6</span> Choosing rows: filter, between, slice, sample_n, top_n, distinct</h2>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="dplyr.html#cb150-1"></a><span class="co"># filter() supports the use of multiple conditions</span></span>
-<span id="cb150-2"><a href="dplyr.html#cb150-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(dep_time <span class="op">&gt;=</span><span class="st"> </span><span class="dv">600</span>, dep_time <span class="op">&lt;=</span><span class="st"> </span><span class="dv">605</span>)</span></code></pre></div>
+<div id="choosing-rows-filter-between-slice-sample_n-top_n-distinct" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Choosing rows: filter, between, slice, sample_n, top_n, distinct</h2>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="dplyr.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter() supports the use of multiple conditions</span></span>
+<span id="cb158-2"><a href="dplyr.html#cb158-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dep_time <span class="sc">&gt;=</span> <span class="dv">600</span>, dep_time <span class="sc">&lt;=</span> <span class="dv">605</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2,460 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -393,13 +447,13 @@ Groups of rows:</li>
 ## # ... with 2,450 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="dplyr.html#cb152-1"></a><span class="co"># between() is a concise alternative for determing if numeric values fall in a range</span></span>
-<span id="cb152-2"><a href="dplyr.html#cb152-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">between</span>(dep_time, <span class="dv">600</span>, <span class="dv">605</span>))</span>
-<span id="cb152-3"><a href="dplyr.html#cb152-3"></a></span>
-<span id="cb152-4"><a href="dplyr.html#cb152-4"></a><span class="co"># side note: is.na() can also be useful when filtering</span></span>
-<span id="cb152-5"><a href="dplyr.html#cb152-5"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(dep_time))</span></code></pre></div>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="dplyr.html#cb153-1"></a><span class="co"># slice() filters rows by position</span></span>
-<span id="cb153-2"><a href="dplyr.html#cb153-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1000</span><span class="op">:</span><span class="dv">1005</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dplyr.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># between() is a concise alternative for determing if numeric values fall in a range</span></span>
+<span id="cb160-2"><a href="dplyr.html#cb160-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">between</span>(dep_time, <span class="dv">600</span>, <span class="dv">605</span>))</span>
+<span id="cb160-3"><a href="dplyr.html#cb160-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-4"><a href="dplyr.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="co"># side note: is.na() can also be useful when filtering</span></span>
+<span id="cb160-5"><a href="dplyr.html#cb160-5" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_time))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dplyr.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># slice() filters rows by position</span></span>
+<span id="cb161-2"><a href="dplyr.html#cb161-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1000</span><span class="sc">:</span><span class="dv">1005</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 19
 ##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -412,8 +466,8 @@ Groups of rows:</li>
 ## # ... with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="dplyr.html#cb155-1"></a><span class="co"># keep the first three rows within each group</span></span>
-<span id="cb155-2"><a href="dplyr.html#cb155-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dplyr.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># keep the first three rows within each group</span></span>
+<span id="cb163-2"><a href="dplyr.html#cb163-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,095 x 19
 ## # Groups:   month, day [365]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
@@ -431,27 +485,27 @@ Groups of rows:</li>
 ## # ... with 1,085 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="dplyr.html#cb157-1"></a><span class="co"># sample three rows from each group</span></span>
-<span id="cb157-2"><a href="dplyr.html#cb157-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dplyr.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample three rows from each group</span></span>
+<span id="cb165-2"><a href="dplyr.html#cb165-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,095 x 19
 ## # Groups:   month, day [365]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     1     1      644            636         8      931            940
-##  2  2013     1     1     1101           1043        18     1345           1332
-##  3  2013     1     1     1424           1420         4     1659           1644
-##  4  2013     1     2     1603           1605        -2     1817           1750
-##  5  2013     1     2     1856           1900        -4     2021           2035
-##  6  2013     1     2     1611           1600        11     1736           1720
-##  7  2013     1     3     1817           1815         2     2121           2130
-##  8  2013     1     3     2308           2245        23       30              5
-##  9  2013     1     3     1313           1258        15     1539           1610
-## 10  2013     1     4      801            759         2     1002            959
+##  1  2013     1     1     1445           1455       -10     1635           1645
+##  2  2013     1     1     2026           2004        22     2157           2133
+##  3  2013     1     1     2101           2050        11     2156           2202
+##  4  2013     1     2     1438           1429         9     1733           1722
+##  5  2013     1     2      600            600         0      846            846
+##  6  2013     1     2     1358           1315        43     1550           1520
+##  7  2013     1     3     1149           1145         4     1412           1410
+##  8  2013     1     3      850            855        -5     1126           1101
+##  9  2013     1     3      600            600         0      736            745
+## 10  2013     1     4      955           1000        -5     1259           1310
 ## # ... with 1,085 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="dplyr.html#cb159-1"></a><span class="co"># keep three rows from each group with the top dep_delay</span></span>
-<span id="cb159-2"><a href="dplyr.html#cb159-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">3</span>, dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="dplyr.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># keep three rows from each group with the top dep_delay</span></span>
+<span id="cb167-2"><a href="dplyr.html#cb167-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">3</span>, dep_delay)</span></code></pre></div>
 <pre><code>## # A tibble: 1,108 x 19
 ## # Groups:   month, day [365]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
@@ -469,8 +523,8 @@ Groups of rows:</li>
 ## # ... with 1,098 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dplyr.html#cb161-1"></a><span class="co"># also sort by dep_delay within each group</span></span>
-<span id="cb161-2"><a href="dplyr.html#cb161-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">3</span>, dep_delay) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(dep_delay))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dplyr.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># also sort by dep_delay within each group</span></span>
+<span id="cb169-2"><a href="dplyr.html#cb169-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">3</span>, dep_delay) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span></code></pre></div>
 <pre><code>## # A tibble: 1,108 x 19
 ## # Groups:   month, day [365]
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
@@ -488,8 +542,8 @@ Groups of rows:</li>
 ## # ... with 1,098 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dplyr.html#cb163-1"></a><span class="co"># unique rows can be identified using unique() from base R</span></span>
-<span id="cb163-2"><a href="dplyr.html#cb163-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(origin, dest) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dplyr.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unique rows can be identified using unique() from base R</span></span>
+<span id="cb171-2"><a href="dplyr.html#cb171-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(origin, dest) <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 224 x 2
 ##    origin dest 
 ##    &lt;chr&gt;  &lt;chr&gt;
@@ -504,16 +558,16 @@ Groups of rows:</li>
 ##  9 JFK    MCO  
 ## 10 LGA    ORD  
 ## # ... with 214 more rows</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dplyr.html#cb165-1"></a><span class="co"># dplyr provides an alternative that is more &quot;efficient&quot;</span></span>
-<span id="cb165-2"><a href="dplyr.html#cb165-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(origin, dest) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>()</span>
-<span id="cb165-3"><a href="dplyr.html#cb165-3"></a></span>
-<span id="cb165-4"><a href="dplyr.html#cb165-4"></a><span class="co"># side note: when chaining, you don&#39;t have to include the parentheses if there are no arguments</span></span>
-<span id="cb165-5"><a href="dplyr.html#cb165-5"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(origin, dest) <span class="op">%&gt;%</span><span class="st"> </span>distinct</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="dplyr.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr provides an alternative that is more &quot;efficient&quot;</span></span>
+<span id="cb173-2"><a href="dplyr.html#cb173-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(origin, dest) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb173-3"><a href="dplyr.html#cb173-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-4"><a href="dplyr.html#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="co"># side note: when chaining, you don&#39;t have to include the parentheses if there are no arguments</span></span>
+<span id="cb173-5"><a href="dplyr.html#cb173-5" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">select</span>(origin, dest) <span class="sc">%&gt;%</span> distinct</span></code></pre></div>
 </div>
-<div id="adding-new-variables-mutate-transmute-add_rownames" class="section level2">
-<h2><span class="header-section-number">7.7</span> Adding new variables: mutate, transmute, add_rownames</h2>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="dplyr.html#cb166-1"></a><span class="co"># mutate() creates a new variable (and keeps all existing variables)</span></span>
-<span id="cb166-2"><a href="dplyr.html#cb166-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">speed =</span> distance<span class="op">/</span>air_time<span class="op">*</span><span class="dv">60</span>)</span></code></pre></div>
+<div id="adding-new-variables-mutate-transmute-add_rownames" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Adding new variables: mutate, transmute, add_rownames</h2>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="dplyr.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate() creates a new variable (and keeps all existing variables)</span></span>
+<span id="cb174-2"><a href="dplyr.html#cb174-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">speed =</span> distance<span class="sc">/</span>air_time<span class="sc">*</span><span class="dv">60</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 20
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -531,8 +585,8 @@ Groups of rows:</li>
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;,
 ## #   speed &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="dplyr.html#cb168-1"></a><span class="co"># transmute() only keeps the new variables</span></span>
-<span id="cb168-2"><a href="dplyr.html#cb168-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">speed =</span> distance<span class="op">/</span>air_time<span class="op">*</span><span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="dplyr.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transmute() only keeps the new variables</span></span>
+<span id="cb176-2"><a href="dplyr.html#cb176-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">transmute</span>(<span class="at">speed =</span> distance<span class="sc">/</span>air_time<span class="sc">*</span><span class="dv">60</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 1
 ##    speed
 ##    &lt;dbl&gt;
@@ -547,8 +601,8 @@ Groups of rows:</li>
 ##  9  405.
 ## 10  319.
 ## # ... with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dplyr.html#cb170-1"></a><span class="co"># example data frame with row names</span></span>
-<span id="cb170-2"><a href="dplyr.html#cb170-2"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dplyr.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example data frame with row names</span></span>
+<span id="cb178-2"><a href="dplyr.html#cb178-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -556,10 +610,12 @@ Groups of rows:</li>
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="dplyr.html#cb172-1"></a><span class="co"># add_rownames() turns row names into an explicit variable</span></span>
-<span id="cb172-2"><a href="dplyr.html#cb172-2"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">add_rownames</span>(<span class="st">&quot;model&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="dplyr.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add_rownames() turns row names into an explicit variable</span></span>
+<span id="cb180-2"><a href="dplyr.html#cb180-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">add_rownames</span>(<span class="st">&quot;model&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## Warning: `add_rownames()` was deprecated in dplyr 1.0.0.
-## Please use `tibble::rownames_to_column()` instead.</code></pre>
+## Please use `tibble::rownames_to_column()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <pre><code>## # A tibble: 6 x 12
 ##   model          mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
 ##   &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -569,10 +625,12 @@ Groups of rows:</li>
 ## 4 Hornet 4 Dr~  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1
 ## 5 Hornet Spor~  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2
 ## 6 Valiant       18.1     6   225   105  2.76  3.46  20.2     1     0     3     1</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="dplyr.html#cb175-1"></a><span class="co"># side note: dplyr no longer prints row names (ever) for local data frames</span></span>
-<span id="cb175-2"><a href="dplyr.html#cb175-2"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tbl_df</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dplyr.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># side note: dplyr no longer prints row names (ever) for local data frames</span></span>
+<span id="cb183-2"><a href="dplyr.html#cb183-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">tbl_df</span>()</span></code></pre></div>
 <pre><code>## Warning: `tbl_df()` was deprecated in dplyr 1.0.0.
-## Please use `tibble::as_tibble()` instead.</code></pre>
+## Please use `tibble::as_tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -588,13 +646,13 @@ Groups of rows:</li>
 ## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
 ## # ... with 22 more rows</code></pre>
 </div>
-<div id="grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup" class="section level2">
-<h2><span class="header-section-number">7.8</span> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</h2>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dplyr.html#cb178-1"></a><span class="co"># summarise() can be used to count the number of rows in each group</span></span>
-<span id="cb178-2"><a href="dplyr.html#cb178-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>())</span></code></pre></div>
+<div id="grouping-and-counting-summarise-tally-count-group_size-n_groups-ungroup" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Grouping and counting: summarise, tally, count, group_size, n_groups, ungroup</h2>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dplyr.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarise() can be used to count the number of rows in each group</span></span>
+<span id="cb186-2"><a href="dplyr.html#cb186-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 2
 ##    month   cnt
-##  * &lt;int&gt; &lt;int&gt;
+##    &lt;int&gt; &lt;int&gt;
 ##  1     1 27004
 ##  2     2 24951
 ##  3     3 28834
@@ -607,11 +665,11 @@ Groups of rows:</li>
 ## 10    10 28889
 ## 11    11 27268
 ## 12    12 28135</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="dplyr.html#cb180-1"></a><span class="co"># tally() and count() can do this more concisely</span></span>
-<span id="cb180-2"><a href="dplyr.html#cb180-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
-<span id="cb180-3"><a href="dplyr.html#cb180-3"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(month)</span></code></pre></div>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="dplyr.html#cb181-1"></a><span class="co"># you can sort by the count</span></span>
-<span id="cb181-2"><a href="dplyr.html#cb181-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt))</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dplyr.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tally() and count() can do this more concisely</span></span>
+<span id="cb188-2"><a href="dplyr.html#cb188-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">tally</span>()</span>
+<span id="cb188-3"><a href="dplyr.html#cb188-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">count</span>(month)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dplyr.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can sort by the count</span></span>
+<span id="cb189-2"><a href="dplyr.html#cb189-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(cnt))</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 2
 ##    month   cnt
 ##    &lt;int&gt; &lt;int&gt;
@@ -627,14 +685,14 @@ Groups of rows:</li>
 ## 10    11 27268
 ## 11     1 27004
 ## 12     2 24951</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dplyr.html#cb183-1"></a><span class="co"># tally() and count() have a sort parameter for this purpose</span></span>
-<span id="cb183-2"><a href="dplyr.html#cb183-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>(<span class="dt">sort=</span><span class="ot">TRUE</span>)</span>
-<span id="cb183-3"><a href="dplyr.html#cb183-3"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(month, <span class="dt">sort=</span><span class="ot">TRUE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dplyr.html#cb184-1"></a><span class="co"># you can sum over a specific variable instead of simply counting rows</span></span>
-<span id="cb184-2"><a href="dplyr.html#cb184-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">dist =</span> <span class="kw">sum</span>(distance))</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dplyr.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tally() and count() have a sort parameter for this purpose</span></span>
+<span id="cb191-2"><a href="dplyr.html#cb191-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">tally</span>(<span class="at">sort=</span><span class="cn">TRUE</span>)</span>
+<span id="cb191-3"><a href="dplyr.html#cb191-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">count</span>(month, <span class="at">sort=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dplyr.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can sum over a specific variable instead of simply counting rows</span></span>
+<span id="cb192-2"><a href="dplyr.html#cb192-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">dist =</span> <span class="fu">sum</span>(distance))</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 2
 ##    month     dist
-##  * &lt;int&gt;    &lt;dbl&gt;
+##    &lt;int&gt;    &lt;dbl&gt;
 ##  1     1 27188805
 ##  2     2 24975509
 ##  3     3 29179636
@@ -647,17 +705,17 @@ Groups of rows:</li>
 ## 10    10 30012086
 ## 11    11 28639718
 ## 12    12 29954084</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dplyr.html#cb186-1"></a><span class="co"># tally() and count() have a wt parameter for this purpose</span></span>
-<span id="cb186-2"><a href="dplyr.html#cb186-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>(<span class="dt">wt =</span> distance)</span>
-<span id="cb186-3"><a href="dplyr.html#cb186-3"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(month, <span class="dt">wt =</span> distance)</span></code></pre></div>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="dplyr.html#cb187-1"></a><span class="co"># group_size() returns the counts as a vector</span></span>
-<span id="cb187-2"><a href="dplyr.html#cb187-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_size</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dplyr.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tally() and count() have a wt parameter for this purpose</span></span>
+<span id="cb194-2"><a href="dplyr.html#cb194-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">tally</span>(<span class="at">wt =</span> distance)</span>
+<span id="cb194-3"><a href="dplyr.html#cb194-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">count</span>(month, <span class="at">wt =</span> distance)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="dplyr.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group_size() returns the counts as a vector</span></span>
+<span id="cb195-2"><a href="dplyr.html#cb195-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">group_size</span>()</span></code></pre></div>
 <pre><code>##  [1] 27004 24951 28834 28330 28796 28243 29425 29327 27574 28889 27268 28135</code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dplyr.html#cb189-1"></a><span class="co"># n_groups() simply reports the number of groups</span></span>
-<span id="cb189-2"><a href="dplyr.html#cb189-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">n_groups</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="dplyr.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n_groups() simply reports the number of groups</span></span>
+<span id="cb197-2"><a href="dplyr.html#cb197-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> <span class="fu">n_groups</span>()</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dplyr.html#cb191-1"></a><span class="co"># group by two variables, summarise, arrange (output is possibly confusing)</span></span>
-<span id="cb191-2"><a href="dplyr.html#cb191-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="dplyr.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group by two variables, summarise, arrange (output is possibly confusing)</span></span>
+<span id="cb199-2"><a href="dplyr.html#cb199-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(cnt)) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">40</span>)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 x 3
 ## # Groups:   month [12]
@@ -704,8 +762,8 @@ Groups of rows:</li>
 ## 39     6    20   995
 ## 40     6    26   995
 ## # ... with 325 more rows</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dplyr.html#cb194-1"></a><span class="co"># ungroup() before arranging to arrange across all groups</span></span>
-<span id="cb194-2"><a href="dplyr.html#cb194-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(month, day) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">cnt =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(cnt))</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dplyr.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ungroup() before arranging to arrange across all groups</span></span>
+<span id="cb202-2"><a href="dplyr.html#cb202-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(month, day) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">cnt =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(cnt))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 x 3
 ##    month   day   cnt
@@ -722,8 +780,8 @@ Groups of rows:</li>
 ## 10     7    17  1001
 ## # ... with 355 more rows</code></pre>
 </div>
-<div id="creating-data-frames-data_frame" class="section level2">
-<h2><span class="header-section-number">7.9</span> Creating data frames: data_frame</h2>
+<div id="creating-data-frames-data_frame" class="section level2" number="8.9">
+<h2><span class="header-section-number">8.9</span> Creating data frames: data_frame</h2>
 <p><code>data_frame()</code> is a better way than <code>data.frame()</code> for creating data frames. Benefits of <code>data_frame()</code>:</p>
 <ul>
 <li>You can use previously defined columns to compute new columns.</li>
@@ -733,51 +791,53 @@ Groups of rows:</li>
 <li>It only recycles length 1 input.</li>
 <li>It returns a local data frame (a tbl_df).</li>
 </ul>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="dplyr.html#cb197-1"></a><span class="co"># data_frame() example</span></span>
-<span id="cb197-2"><a href="dplyr.html#cb197-2"></a><span class="kw">data_frame</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">b =</span> a<span class="op">*</span><span class="dv">2</span>, <span class="dt">c =</span> <span class="st">&#39;string&#39;</span>, <span class="st">&#39;d+e&#39;</span> =<span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dplyr.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data_frame() example</span></span>
+<span id="cb205-2"><a href="dplyr.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">b =</span> a<span class="sc">*</span><span class="dv">2</span>, <span class="at">c =</span> <span class="st">&#39;string&#39;</span>, <span class="st">&#39;d+e&#39;</span> <span class="ot">=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Warning: `data_frame()` was deprecated in tibble 1.1.0.
-## Please use `tibble()` instead.</code></pre>
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <pre><code>## Rows: 6
 ## Columns: 4
 ## $ a     &lt;int&gt; 1, 2, 3, 4, 5, 6
 ## $ b     &lt;dbl&gt; 2, 4, 6, 8, 10, 12
 ## $ c     &lt;chr&gt; &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;
 ## $ `d+e` &lt;dbl&gt; 1, 1, 1, 1, 1, 1</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dplyr.html#cb200-1"></a><span class="co"># data.frame() example</span></span>
-<span id="cb200-2"><a href="dplyr.html#cb200-2"></a><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">c =</span> <span class="st">&#39;string&#39;</span>, <span class="st">&#39;d+e&#39;</span> =<span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dplyr.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data.frame() example</span></span>
+<span id="cb208-2"><a href="dplyr.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">c =</span> <span class="st">&#39;string&#39;</span>, <span class="st">&#39;d+e&#39;</span> <span class="ot">=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 3
 ## $ a   &lt;int&gt; 1, 2, 3, 4, 5, 6
 ## $ c   &lt;chr&gt; &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;, &quot;string&quot;
 ## $ d.e &lt;dbl&gt; 1, 1, 1, 1, 1, 1</code></pre>
 </div>
-<div id="joining-merging-tables-left_join-right_join-inner_join-full_join-semi_join-anti_join" class="section level2">
-<h2><span class="header-section-number">7.10</span> Joining (merging) tables: left_join, right_join, inner_join, full_join, semi_join, anti_join</h2>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dplyr.html#cb202-1"></a><span class="co"># create two simple data frames</span></span>
-<span id="cb202-2"><a href="dplyr.html#cb202-2"></a>(a &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;red&quot;</span>), <span class="dt">num =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>))</span></code></pre></div>
+<div id="joining-merging-tables-left_join-right_join-inner_join-full_join-semi_join-anti_join" class="section level2" number="8.10">
+<h2><span class="header-section-number">8.10</span> Joining (merging) tables: left_join, right_join, inner_join, full_join, semi_join, anti_join</h2>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dplyr.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create two simple data frames</span></span>
+<span id="cb210-2"><a href="dplyr.html#cb210-2" aria-hidden="true" tabindex="-1"></a>(a <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(<span class="at">color =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;red&quot;</span>), <span class="at">num =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   color    num
 ##   &lt;chr&gt;  &lt;int&gt;
 ## 1 green      1
 ## 2 yellow     2
 ## 3 red        3</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dplyr.html#cb204-1"></a>(b &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;pink&quot;</span>), <span class="dt">size =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;L&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dplyr.html#cb212-1" aria-hidden="true" tabindex="-1"></a>(b <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(<span class="at">color =</span> <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;pink&quot;</span>), <span class="at">size =</span> <span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;L&quot;</span>)))</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   color  size 
 ##   &lt;chr&gt;  &lt;chr&gt;
 ## 1 green  S    
 ## 2 yellow M    
 ## 3 pink   L</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dplyr.html#cb206-1"></a><span class="co"># only include observations found in both &quot;a&quot; and &quot;b&quot; (automatically joins on variables that appear in both tables)</span></span>
-<span id="cb206-2"><a href="dplyr.html#cb206-2"></a><span class="kw">inner_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dplyr.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co"># only include observations found in both &quot;a&quot; and &quot;b&quot; (automatically joins on variables that appear in both tables)</span></span>
+<span id="cb214-2"><a href="dplyr.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   color    num size 
 ##   &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;
 ## 1 green      1 S    
 ## 2 yellow     2 M</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dplyr.html#cb209-1"></a><span class="co"># include observations found in either &quot;a&quot; or &quot;b&quot;</span></span>
-<span id="cb209-2"><a href="dplyr.html#cb209-2"></a><span class="kw">full_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="dplyr.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include observations found in either &quot;a&quot; or &quot;b&quot;</span></span>
+<span id="cb217-2"><a href="dplyr.html#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 4 x 3
 ##   color    num size 
@@ -786,8 +846,8 @@ Groups of rows:</li>
 ## 2 yellow     2 M    
 ## 3 red        3 &lt;NA&gt; 
 ## 4 pink      NA L</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dplyr.html#cb212-1"></a><span class="co"># include all observations found in &quot;a&quot;</span></span>
-<span id="cb212-2"><a href="dplyr.html#cb212-2"></a><span class="kw">left_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dplyr.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include all observations found in &quot;a&quot;</span></span>
+<span id="cb220-2"><a href="dplyr.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   color    num size 
@@ -795,8 +855,8 @@ Groups of rows:</li>
 ## 1 green      1 S    
 ## 2 yellow     2 M    
 ## 3 red        3 &lt;NA&gt;</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="dplyr.html#cb215-1"></a><span class="co"># include all observations found in &quot;b&quot;</span></span>
-<span id="cb215-2"><a href="dplyr.html#cb215-2"></a><span class="kw">right_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="dplyr.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include all observations found in &quot;b&quot;</span></span>
+<span id="cb223-2"><a href="dplyr.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   color    num size 
@@ -804,8 +864,8 @@ Groups of rows:</li>
 ## 1 green      1 S    
 ## 2 yellow     2 M    
 ## 3 pink      NA L</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dplyr.html#cb218-1"></a><span class="co"># right_join(a, b) is identical to left_join(b, a) except for column ordering</span></span>
-<span id="cb218-2"><a href="dplyr.html#cb218-2"></a><span class="kw">left_join</span>(b, a)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="dplyr.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co"># right_join(a, b) is identical to left_join(b, a) except for column ordering</span></span>
+<span id="cb226-2"><a href="dplyr.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(b, a)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   color  size    num
@@ -813,36 +873,36 @@ Groups of rows:</li>
 ## 1 green  S         1
 ## 2 yellow M         2
 ## 3 pink   L        NA</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="dplyr.html#cb221-1"></a><span class="co"># filter &quot;a&quot; to only show observations that match &quot;b&quot;</span></span>
-<span id="cb221-2"><a href="dplyr.html#cb221-2"></a><span class="kw">semi_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="dplyr.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter &quot;a&quot; to only show observations that match &quot;b&quot;</span></span>
+<span id="cb229-2"><a href="dplyr.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">semi_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   color    num
 ##   &lt;chr&gt;  &lt;int&gt;
 ## 1 green      1
 ## 2 yellow     2</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dplyr.html#cb224-1"></a><span class="co"># filter &quot;a&quot; to only show observations that don&#39;t match &quot;b&quot;</span></span>
-<span id="cb224-2"><a href="dplyr.html#cb224-2"></a><span class="kw">anti_join</span>(a, b)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dplyr.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter &quot;a&quot; to only show observations that don&#39;t match &quot;b&quot;</span></span>
+<span id="cb232-2"><a href="dplyr.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(a, b)</span></code></pre></div>
 <pre><code>## Joining, by = &quot;color&quot;</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   color   num
 ##   &lt;chr&gt; &lt;int&gt;
 ## 1 red       3</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="dplyr.html#cb227-1"></a><span class="co"># sometimes matching variables don&#39;t have identical names</span></span>
-<span id="cb227-2"><a href="dplyr.html#cb227-2"></a>b &lt;-<span class="st"> </span>b <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">col =</span> color)</span>
-<span id="cb227-3"><a href="dplyr.html#cb227-3"></a></span>
-<span id="cb227-4"><a href="dplyr.html#cb227-4"></a><span class="co"># specify that the join should occur by matching &quot;color&quot; in &quot;a&quot; with &quot;col&quot; in &quot;b&quot;</span></span>
-<span id="cb227-5"><a href="dplyr.html#cb227-5"></a><span class="kw">inner_join</span>(a, b, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;color&quot;</span> =<span class="st"> &quot;col&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="dplyr.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sometimes matching variables don&#39;t have identical names</span></span>
+<span id="cb235-2"><a href="dplyr.html#cb235-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> b <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">col =</span> color)</span>
+<span id="cb235-3"><a href="dplyr.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="dplyr.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify that the join should occur by matching &quot;color&quot; in &quot;a&quot; with &quot;col&quot; in &quot;b&quot;</span></span>
+<span id="cb235-5"><a href="dplyr.html#cb235-5" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(a, b, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;color&quot;</span> <span class="ot">=</span> <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 3
 ##   color    num size 
 ##   &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;
 ## 1 green      1 S    
 ## 2 yellow     2 M</code></pre>
 </div>
-<div id="viewing-more-output-print-view" class="section level2">
-<h2><span class="header-section-number">7.11</span> Viewing more output: print, View</h2>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="dplyr.html#cb229-1"></a><span class="co"># specify that you want to see more rows</span></span>
-<span id="cb229-2"><a href="dplyr.html#cb229-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div id="viewing-more-output-print-view" class="section level2" number="8.11">
+<h2><span class="header-section-number">8.11</span> Viewing more output: print, View</h2>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="dplyr.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify that you want to see more rows</span></span>
+<span id="cb237-2"><a href="dplyr.html#cb237-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -864,10 +924,10 @@ Groups of rows:</li>
 ## # ... with 336,761 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="dplyr.html#cb231-1"></a><span class="co"># specify that you want to see ALL rows (don&#39;t run this!)</span></span>
-<span id="cb231-2"><a href="dplyr.html#cb231-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dplyr.html#cb232-1"></a><span class="co"># specify that you want to see all columns</span></span>
-<span id="cb232-2"><a href="dplyr.html#cb232-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">print</span>(<span class="dt">width =</span> <span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="dplyr.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify that you want to see ALL rows (don&#39;t run this!)</span></span>
+<span id="cb239-2"><a href="dplyr.html#cb239-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="dplyr.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify that you want to see all columns</span></span>
+<span id="cb240-2"><a href="dplyr.html#cb240-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">width =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -906,17 +966,17 @@ Groups of rows:</li>
 ##  9 2013-01-01 06:00:00
 ## 10 2013-01-01 06:00:00
 ## # ... with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="dplyr.html#cb234-1"></a><span class="co"># show up to 1000 rows and all columns</span></span>
-<span id="cb234-2"><a href="dplyr.html#cb234-2"></a>flights <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">View</span>()</span>
-<span id="cb234-3"><a href="dplyr.html#cb234-3"></a></span>
-<span id="cb234-4"><a href="dplyr.html#cb234-4"></a><span class="co"># set option to see all columns and fewer rows</span></span>
-<span id="cb234-5"><a href="dplyr.html#cb234-5"></a><span class="kw">options</span>(<span class="dt">dplyr.width =</span> <span class="ot">Inf</span>, <span class="dt">dplyr.print_min =</span> <span class="dv">6</span>)</span>
-<span id="cb234-6"><a href="dplyr.html#cb234-6"></a></span>
-<span id="cb234-7"><a href="dplyr.html#cb234-7"></a><span class="co"># reset options (or just close R)</span></span>
-<span id="cb234-8"><a href="dplyr.html#cb234-8"></a><span class="kw">options</span>(<span class="dt">dplyr.width =</span> <span class="ot">NULL</span>, <span class="dt">dplyr.print_min =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="dplyr.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show up to 1000 rows and all columns</span></span>
+<span id="cb242-2"><a href="dplyr.html#cb242-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> <span class="fu">View</span>()</span>
+<span id="cb242-3"><a href="dplyr.html#cb242-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-4"><a href="dplyr.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set option to see all columns and fewer rows</span></span>
+<span id="cb242-5"><a href="dplyr.html#cb242-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">dplyr.width =</span> <span class="cn">Inf</span>, <span class="at">dplyr.print_min =</span> <span class="dv">6</span>)</span>
+<span id="cb242-6"><a href="dplyr.html#cb242-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-7"><a href="dplyr.html#cb242-7" aria-hidden="true" tabindex="-1"></a><span class="co"># reset options (or just close R)</span></span>
+<span id="cb242-8"><a href="dplyr.html#cb242-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">dplyr.width =</span> <span class="cn">NULL</span>, <span class="at">dplyr.print_min =</span> <span class="dv">10</span>)</span></code></pre></div>
 </div>
-<div id="resources" class="section level2">
-<h2><span class="header-section-number">7.12</span> Resources</h2>
+<div id="resources" class="section level2" number="8.12">
+<h2><span class="header-section-number">8.12</span> Resources</h2>
 <ul>
 <li>Release announcements for <a href="http://blog.rstudio.org/2014/10/13/dplyr-0-3-2/">version 0.3</a> and <a href="http://blog.rstudio.org/2015/01/09/dplyr-0-4-0/">version 0.4</a></li>
 <li><a href="http://cran.r-project.org/web/packages/dplyr/">dplyr reference manual and vignettes</a></li>
@@ -925,8 +985,8 @@ Groups of rows:</li>
 <li><a href="https://github.com/hadley/dplyr">dplyr GitHub repo</a> and <a href="https://github.com/hadley/dplyr/releases">list of releases</a></li>
 </ul>
 </div>
-<div id="data-school" class="section level2">
-<h2><span class="header-section-number">7.13</span> Data School</h2>
+<div id="data-school" class="section level2" number="8.13">
+<h2><span class="header-section-number">8.13</span> Data School</h2>
 <ul>
 <li><a href="http://www.dataschool.io/">Blog</a></li>
 <li><a href="http://www.dataschool.io/subscribe/">Email newsletter</a></li>
@@ -945,7 +1005,6 @@ Groups of rows:</li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -985,6 +1044,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Data Analytics I Bookdown.pdf", "Data Analytics I Bookdown.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

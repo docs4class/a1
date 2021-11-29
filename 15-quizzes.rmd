@@ -96,11 +96,4 @@ plot(hp,mpg)
 
 `Error in plot(hp, mpg) : object 'hp' not found`
 
-7. What code would generate this plot?
-
-```{r echo=FALSE, out.width="50%"}
-attach(mtcars)
-plot(hp,mpg)
-```
-
 Bonus: What is a topic that you find confusing at this point in class? 

@@ -35,26 +35,20 @@ dim(mtcars)
 1. Find the minimum and maximum value of `mpg` 
 2. Find the mean and standard deviation of data variable `mpg` 
 3. What variable has a 3rd quartile value of 180.0? 
-4. Create this figure
 
-```{r, echo=FALSE}
-attach(mtcars)
-plot(wt,mpg)
-```
-
-5. Create and explain what this means
+4. Create and explain what this means
 
 ```{r, echo=FALSE}
 plot(mtcars)
 ```
 
-6. Create and explain what this means
+5. Create and explain what this means
 
 ```{r, echo=FALSE, fig.dim = c(3, 2)}
 cor(mtcars)
 ```
 
-7. Create a variable called `efficiency` which is mpg divided by weight.  Which car has the max `efficiency` and what is this value?
-8. Which variable in this dataset has the greatest standard deviation?
-9. How many cars have 3 gears?
-10. How many cars get more than 17 mpg?
+6. Create a variable called `efficiency` which is mpg divided by weight.  Which car has the max `efficiency` and what is this value?
+7. Which variable in this dataset has the greatest standard deviation?
+8. How many cars have 3 gears?
+9. How many cars get more than 17 mpg?

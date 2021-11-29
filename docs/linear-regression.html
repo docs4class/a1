@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 11 Linear Regression | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 11 Linear Regression | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 11 Linear Regression | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dealing-with-errors.html"/>
-<link rel="next" href="practice-final-exam.html"/>
+<link rel="prev" href="gdh-ice-cream.html"/>
+<link rel="next" href="logistic-regression.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -281,82 +281,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-analytics-i-quizzes" class="section level1" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Data Analytics I Quizzes</h1>
-<div id="quiz-one-linear-regression" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Quiz One (Linear Regression)</h2>
-<p>Name: __________________________</p>
-<ol style="list-style-type: decimal">
-<li>Add a another variable (column) to the <code>women</code> dataframe called GPA which is these 15 numbers: 1.5, 3.7, 4,1, 3, 2.5, 3.8, 0.8, 2, 4, 1, 3, 2.5, 3.0, 4.0</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Use GPA and weight to predict the height of a person who is 155 pounds and has a GPA if 3.33. What is your prediction? _______</p></li>
-<li><p>Is GPA a significant predictor of height and how do you know?</p></li>
-</ol>
-<p><br>
-<br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Create a figure showing a best fit line on of height and GPA.</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Install the dplyr package into your Rstudio session.</li>
-</ol>
+<div id="linear-regression" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Linear Regression</h1>
+<div id="what-is-machine-learning" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> What is Machine Learning?</h2>
+<p>This is where the fun stuff begins! What we have learned up to this point has barely scratched the surface of what R is capable of. In the world of data science, R is used for three primary purposes, those purposes are (1) data transformation, (2) data wrangling, (3) machine learning. The other two purposes have been covered in earlier chapters of this book. The reason we covered the other topics first is that that lay the foundation. In the real world, it is likely you will never be given a clean data set, and you will have to do some wrangling and transformation before anything else is possible. After all, in the experience of many data science students, cleaning the data is the most tedious and time consuming process of a project.</p>
+<p>Enough of the old stuff, what is machine learning? According to the Merriam-Webster Dictionary, machine learning is “the process by which a computer is able to improve its own performance by continuously incorporating new data into an existing statistical model.” Let’s take a trip back to the Target story discussed in the introductory chapter. The data scientist, or more likely data scientists (collaborative work is essential in this field), that worked on that model were likely experts in machine learning. They were able to train the computer to look through thousands (probably more) of customers’ data and the computer, based off the algorithms written by these “data nerds,” was able to predict whether a customer was pregnant! Think of other possible applications of this technology? We could predict how well a student will preform on an exam, the risk of someone suffering from a heart attack, or the likelihood that someone will default on a loan. Every field in existence today could find a way to implement machine learning to optimize their business.</p>
+<p>There are two branches of machine learning, supervised and unsupervised. Both have their own unique uses, however in this course we will focus on supervised machine learning. Supervised machine learning required us to provide a clean data set with clearly defined variables and instructions. Essentially, we give the computer the information it needs and provide it with specific instructions detailing what we would like to see happen, and it does the rest. Linear regression is typically the first method of supervised learning people are introduced to, and it will be the focus of this chapter.</p>
+<p>Note, these concepts are not all common sense and can be difficult to wrap your head around at times. Be sure to constantly turn to your instructor or peers for assistance and remember that there are hundreds of online resources at your disposal. As with anything though, practice makes perfect. The popular rule states that mastering a skill can take upwards of 10,000 hours! Now, this course is not going to take you 10 years to complete, however the goal is that by the end of this chapter you will know your way around the basics of linear regression.</p>
 </div>
-<div id="quiz-two" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Quiz Two</h2>
-<p>Name:___________________________________</p>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    4    7   10   13
-## [2,]    2    5    8   11   14
-## [3,]    3    6    9   12   15</code></pre>
-<ol style="list-style-type: decimal">
-<li><p>Write the code that creates this matrix:</p></li>
-<li><p>Write DIFFERENT code that creates this matrix in an alternate way:</p></li>
-<li><p>In the matrix above, what does <code>[,4]</code> mean?</p></li>
-<li><p>What code would return the value in the 3rd column and 3rd row?</p></li>
-<li><p>What single line of would give you the average of the all the numbers in columns 2, 4, and 5 and in rows 1 and 3?</p></li>
-</ol>
+<div id="model-structure" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Model Structure</h2>
+<p>Let’s look at a very simple model first. For this example, we will need to import the Introduction to Statistical Learning package (ISLR). We will use the “credit” data set that is part of the ISLR package.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="linear-regression.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb247-2"><a href="linear-regression.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
+<span id="cb247-3"><a href="linear-regression.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
+<span id="cb247-4"><a href="linear-regression.html#cb247-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-5"><a href="linear-regression.html#cb247-5" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span></code></pre></div>
+<p>lm is the function we use to create linear regression models. Now, before we discuss interpreting the results we get from this function, we will discuss the different parts of the model. The “~” symbol is the key to this entire equation. We are telling R to predict whatever is on the left side of the tilde using the variables on the right.</p>
 </div>
-<div id="quiz-three" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Quiz Three</h2>
-<p>Name: __________________________</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-analytics-i-quizzes.html#cb266-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
-<pre><code>##    X1 X2 X3 X4 X5 X6 X7 X8 X9 X10
-## 1   1 11 21 31 41 51 61 71 81  91
-## 2   2 12 22 32 42 52 62 72 82  92
-## 3   3 13 23 33 43 53 63 73 83  93
-## 4   4 14 24 34 44 54 64 74 84  94
-## 5   5 15 25 35 45 55 65 75 85  95
-## 6   6 16 26 36 46 56 66 76 86  96
-## 7   7 17 27 37 47 57 67 77 87  97
-## 8   8 18 28 38 48 58 68 78 88  98
-## 9   9 19 29 39 49 59 69 79 89  99
-## 10 10 20 30 40 50 60 70 80 90 100</code></pre>
+<div id="interpretation-of-the-model" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Interpretation of the Model</h2>
+<p>Let’s run a summary on this model and see what we get.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="linear-regression.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Balance ~ Limit + Ethnicity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -677.39 -145.75   -8.75  139.56  776.46 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        -3.078e+02  3.417e+01  -9.007   &lt;2e-16 ***
+## Limit               1.718e-01  5.079e-03  33.831   &lt;2e-16 ***
+## EthnicityAsian      2.835e+01  3.304e+01   0.858    0.391    
+## EthnicityCaucasian  1.381e+01  2.878e+01   0.480    0.632    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 234 on 396 degrees of freedom
+## Multiple R-squared:  0.743,  Adjusted R-squared:  0.7411 
+## F-statistic: 381.6 on 3 and 396 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>There is a lot of statistical jargon included in our summary that may be unfamiliar to those who have not taken statistics before. That is okay, however, because we are going to breakdown the main statistics we are interested in. Let’s start with our variables and their significance in the model.</p>
+<div id="p-values" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> P-Values</h3>
+<p>The p-value of our model helps us either prove or disprove the null-hypothesis of our test. In the case of this class, the null-hypothesis is that there is no relationship between the variables we are using to make the predictions and the actual variable we are predicting. In other words, the smaller our p-value the higher the level of significance there is between our variables. When we run a summary of our linear regression model we are give multiple p-values.</p>
+<p>First, under coefficients, they are listed for each variable. This can help us optimize our model because we can see what variables are helping make the model more accurate versus those that may be hindering its performance. Also notice the asterisks next to our p-values. R kindly puts up to three stars next to each variable to help us visually tell if they are significant, essentially more stars means a lower p-value and thus a higher correlation.
+The second place we see a p-value is at the bottom of our summary. This p-value will give us the overall correlation that exists in our model. As we see in this case, our p-values for this model is &lt; .00000000000000022, that is a tiny number and frankly a great p-value. Typically we want our p-value to be .05 or smaller. A p-value of .05 tells us that we have a confidence level of 95%.</p>
+</div>
+<div id="multiple-r-squared" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Multiple R-Squared</h3>
+<p>R-squared tells us how well our model explains the variance in our variable. In other words, is the reason for the change in the independent variable actually due to our model’s prediction? The higher the r-squared, the more accurate our model is because the better the data fits it. The maximum value r-squared can be is 1.</p>
+<p>In our model’s case, we have a multiple r-squared of .743, this means our model is approximately 74.3% accurate as this is the amount of variance in the data caused by our dependent variable. Our r-squared could certainly be better. In fact, in the real world you typically are aiming for an r-squared above .9 or .95, which means you would have 90%-95% accuracy.</p>
+</div>
+</div>
+<div id="applying-the-model-to-make-predictions" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Applying the Model to Make Predictions</h2>
+<p>This type of regression is refereed to as linear for a reason. If we were to visualize our model on a quadratic plane, we would see a line of best fit that would travel along through our data. This means we can simplify the model to fit the slope-intercept equation:</p>
+<p>y = m(x)+b</p>
+<p>In our case the slope of our line is related to the independent variables. The sum of these slopes will give us the overall slope of our line and the intercept is provided by the equation summary. If we modify this equation to be more applicable to our situation we would get something like this:</p>
+<p>y = m<sub>1</sub>x<sub>1</sub> + m<sub>2</sub>x<sub>2</sub> … + b</p>
+<p>Let’s look back at our example model from before</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="linear-regression.html#cb250-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span>
+<span id="cb250-2"><a href="linear-regression.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Balance ~ Limit + Ethnicity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -677.39 -145.75   -8.75  139.56  776.46 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        -3.078e+02  3.417e+01  -9.007   &lt;2e-16 ***
+## Limit               1.718e-01  5.079e-03  33.831   &lt;2e-16 ***
+## EthnicityAsian      2.835e+01  3.304e+01   0.858    0.391    
+## EthnicityCaucasian  1.381e+01  2.878e+01   0.480    0.632    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 234 on 396 degrees of freedom
+## Multiple R-squared:  0.743,  Adjusted R-squared:  0.7411 
+## F-statistic: 381.6 on 3 and 396 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We see that our limit variable has an estimate of 1.718e-01, this is our slope. When dealing with quantitative variables, we simply multiply our slope by the intended independent variable. So, if we wanted to find the balance of someone with a limit of 400, we would multiply 1.718e-01 by 400.</p>
+<p>With the qualitative variables, in this case ethnicity, we multiply the estimate of the TRUE values by 1 and FALSE values by 0, thus cancelling the FALSE values out.</p>
+<p>Let’s look at an example. If we used our above equation to predict the balance of someone who was Caucasian and has a credit limit of 500, here is the equation we would set up:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="linear-regression.html#cb252-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="fl">1.718e-1</span><span class="sc">*</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">1.381e+01</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.835e+01</span><span class="sc">*</span><span class="dv">0</span>) <span class="sc">+</span> (<span class="sc">-</span><span class="fl">3.078e+02</span>)</span>
+<span id="cb252-2"><a href="linear-regression.html#cb252-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] -208.09</code></pre>
+<p>So, according to our model our customer would have a balance of -208.09. This number may seem funny, but keep in mind that our r-squared was not the best for this model making it inaccurate and the ethnicity of the customer was not highly correlated with the balance. Both of these facts may cause our prediction to be off. If we were actually creating a model that could predict balance, we would want to look at some of the more correlated variables in the data set.</p>
+</div>
+<div id="review-questions-1" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Review Questions</h2>
 <ol style="list-style-type: decimal">
-<li><p>Consider the dataframe above called <code>df</code>. What would running this code return <code>sum(df[7,7:10])</code></p></li>
-<li><p>How can you tell if an object in R is a dataframe?</p></li>
-<li><p>How could you create the dataframe above called <code>df</code>?</p></li>
-<li><p>What code would return the average of row 2 of <code>df</code>?</p></li>
-<li><p>Consider <code>mtcars</code> dataset that comes preloaded with R that looks like this:</p></li>
+<li><p>Create a linear model predicting using the ISLR data set that predicts a customer’s credit limit based on their age, current balance, and the number of cards they have.</p></li>
+<li><p>What is the p-value of this model? What does this tell us?</p></li>
+<li><p>List the variables in order from most correlated to least. How do you know that they are correlated?</p></li>
+<li><p>What is the multiple r-squared of the model? What does this tell us? Is this good or bad?</p></li>
+<li><p>What would be the credit limit of a 29 year old with 5 cards and a total balance of 1500?</p></li>
+<li><p>Explain what the following piece of code does</p></li>
 </ol>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-analytics-i-quizzes.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Why do I get this error when I run the code below: <code>Error in plot(hp, mpg) : object 'hp' not found</code>?</li>
-</ol>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-analytics-i-quizzes.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hp,mpg)</span></code></pre></div>
-<p><code>Error in plot(hp, mpg) : object 'hp' not found</code></p>
-<p>Bonus: What is a topic that you find confusing at this point in class?</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="linear-regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb254-2"><a href="linear-regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
+<span id="cb254-3"><a href="linear-regression.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
+<span id="cb254-4"><a href="linear-regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cards <span class="sc">~</span> Limit <span class="sc">+</span> Balance <span class="sc">+</span> Education)</span></code></pre></div>
 
 </div>
 </div>
@@ -365,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="dealing-with-errors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practice-final-exam.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="gdh-ice-cream.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 12 Logistic Regression | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 12 Logistic Regression | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 12 Logistic Regression | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dealing-with-errors.html"/>
-<link rel="next" href="practice-final-exam.html"/>
+<link rel="prev" href="linear-regression.html"/>
+<link rel="next" href="dealing-with-errors.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -281,82 +281,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-analytics-i-quizzes" class="section level1" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Data Analytics I Quizzes</h1>
-<div id="quiz-one-linear-regression" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Quiz One (Linear Regression)</h2>
-<p>Name: __________________________</p>
-<ol style="list-style-type: decimal">
-<li>Add a another variable (column) to the <code>women</code> dataframe called GPA which is these 15 numbers: 1.5, 3.7, 4,1, 3, 2.5, 3.8, 0.8, 2, 4, 1, 3, 2.5, 3.0, 4.0</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Use GPA and weight to predict the height of a person who is 155 pounds and has a GPA if 3.33. What is your prediction? _______</p></li>
-<li><p>Is GPA a significant predictor of height and how do you know?</p></li>
-</ol>
-<p><br>
-<br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Create a figure showing a best fit line on of height and GPA.</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Install the dplyr package into your Rstudio session.</li>
-</ol>
+<div id="logistic-regression" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Logistic Regression</h1>
+<div id="introduction-5" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Introduction</h2>
+<p>In the previous chapter we discussed linear regression, a type of supervised machine learning often used to make qualitative predictions. Now, we are moving on to logistic regression, another form of supervised machine learning that is commonly used for making predictions of some Boolean variable.</p>
+<p>This form of machine learning is typically used when using a prediction to answer a yes or no question. For instance, let’s say we wanted to predict whether or not someone will suffer from a stroke. Using logistic regression, we can determine the probability that someone will either have a stroke (yes/true/positive result) or will not have a stroke (no/false/negative result).</p>
+<p>Also in this chapter we will discuss the difference between training and test data sets, why they are important, and how we apply them in logistic regression. This will help us to discuss the interpretation of these models and how we can test their accuracy.</p>
+<p>As stated previously, these topics may be difficult, and will be especially difficult if you still don’t understand previous machine learning topics discussed in this course. Be sure to ask questions and seek help if you begin to struggle. This section will call on concepts from the very beginning of the course.</p>
 </div>
-<div id="quiz-two" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Quiz Two</h2>
-<p>Name:___________________________________</p>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    4    7   10   13
-## [2,]    2    5    8   11   14
-## [3,]    3    6    9   12   15</code></pre>
-<ol style="list-style-type: decimal">
-<li><p>Write the code that creates this matrix:</p></li>
-<li><p>Write DIFFERENT code that creates this matrix in an alternate way:</p></li>
-<li><p>In the matrix above, what does <code>[,4]</code> mean?</p></li>
-<li><p>What code would return the value in the 3rd column and 3rd row?</p></li>
-<li><p>What single line of would give you the average of the all the numbers in columns 2, 4, and 5 and in rows 1 and 3?</p></li>
-</ol>
+<div id="training-data-and-test-data" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Training Data and Test Data</h2>
+<p>In supervised machine learning, we provide the computer with data and in essence “teach” it how to treat the data and create predictions with it. Training data is the data we feed our model so that it can make accurate predictions of the probability of an outcome. Meanwhile, test data is the data we compare our model to in order to assess its accuracy.</p>
+<p>So, using the example above, if we were building a model to test the probability of someone having a stroke, we would segment our main data set into two parts, a training set and a test set. Then, after we build our model, we would compare the model’s output to the actual data and see how many times it made accurate predictions, this would in turn give us our model’s accuracy.</p>
 </div>
-<div id="quiz-three" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Quiz Three</h2>
-<p>Name: __________________________</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-analytics-i-quizzes.html#cb266-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
-<pre><code>##    X1 X2 X3 X4 X5 X6 X7 X8 X9 X10
-## 1   1 11 21 31 41 51 61 71 81  91
-## 2   2 12 22 32 42 52 62 72 82  92
-## 3   3 13 23 33 43 53 63 73 83  93
-## 4   4 14 24 34 44 54 64 74 84  94
-## 5   5 15 25 35 45 55 65 75 85  95
-## 6   6 16 26 36 46 56 66 76 86  96
-## 7   7 17 27 37 47 57 67 77 87  97
-## 8   8 18 28 38 48 58 68 78 88  98
-## 9   9 19 29 39 49 59 69 79 89  99
-## 10 10 20 30 40 50 60 70 80 90 100</code></pre>
+<div id="model-structure-1" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Model Structure</h2>
+<p>Let’s use the Auto data set to create a basic logistic regression model. Warning, we are going to be calling on information from earlier in the class a lot during these sections, so if you see any code you are unfamiliar with, first look in earlier class materials as it will not be reexplained here.</p>
+<p>Let’s load in some data from the ISLR package and make some predictions using the “mpg” variable. We want to find the median of the variable, and then predict whether a vehicle will have an mpg above or below that middle point. To do this with logistic regression, we must create a factor object using mpg that our model will try to predict.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="logistic-regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb255-2"><a href="logistic-regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb255-3"><a href="logistic-regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb255-4"><a href="logistic-regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Auto&quot;</span>)</span>
+<span id="cb255-5"><a href="logistic-regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span>
+<span id="cb255-6"><a href="logistic-regression.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span></code></pre></div>
+<pre><code>##       mpg          cylinders      displacement     horsepower        weight    
+##  Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613  
+##  1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225  
+##  Median :22.75   Median :4.000   Median :151.0   Median : 93.5   Median :2804  
+##  Mean   :23.45   Mean   :5.472   Mean   :194.4   Mean   :104.5   Mean   :2978  
+##  3rd Qu.:29.00   3rd Qu.:8.000   3rd Qu.:275.8   3rd Qu.:126.0   3rd Qu.:3615  
+##  Max.   :46.60   Max.   :8.000   Max.   :455.0   Max.   :230.0   Max.   :5140  
+##                                                                                
+##   acceleration        year           origin                      name    
+##  Min.   : 8.00   Min.   :70.00   Min.   :1.000   amc matador       :  5  
+##  1st Qu.:13.78   1st Qu.:73.00   1st Qu.:1.000   ford pinto        :  5  
+##  Median :15.50   Median :76.00   Median :1.000   toyota corolla    :  5  
+##  Mean   :15.54   Mean   :75.98   Mean   :1.577   amc gremlin       :  4  
+##  3rd Qu.:17.02   3rd Qu.:79.00   3rd Qu.:2.000   amc hornet        :  4  
+##  Max.   :24.80   Max.   :82.00   Max.   :3.000   chevrolet chevette:  4  
+##                                                  (Other)           :365</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="logistic-regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> Auto <span class="sc">%&gt;%</span> </span>
+<span id="cb257-2"><a href="logistic-regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg01 =</span> <span class="fu">ifelse</span>(Auto<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="fl">22.75</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb257-3"><a href="logistic-regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">0</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Below&quot;</span></span>
+<span id="cb257-4"><a href="logistic-regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">1</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Above&quot;</span></span>
+<span id="cb257-5"><a href="logistic-regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Auto<span class="sc">$</span>mpg01)</span>
+<span id="cb257-6"><a href="logistic-regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb257-7"><a href="logistic-regression.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span></code></pre></div>
+<p>Now that we have a variable to predict, we can build the model.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="logistic-regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a>glm.auto <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg01 <span class="sc">~</span> weight <span class="sc">+</span> cylinders, <span class="at">data =</span> Auto, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<p>As you can see, the structure is very similar to that of a linear regression model except for our specification of the data set we want it to use (this can be done in linear regression, but we did not earlier in the class) and the family argument which we have not seen before.</p>
+<p>In this course, we will only every specify family to be binomial, this tells R that the variable we are predicting only has two outcomes. The data argument is used to specify a training data set if we were using one, which we are not in this example.</p>
+</div>
+<div id="model-interpretation" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Model Interpretation</h2>
+<p>This is where things start to make a more complicated turn. We are going to look at how we evaluate the model’s performance. First, we must tell R to make the prediction and store the results in an object.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="logistic-regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a>mpg01.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.auto, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span>
+<span id="cb259-2"><a href="logistic-regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a>mpg01.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##         1         2         3         4         5         6         7         8 
+## 0.9769013 0.9866197 0.9719307 0.9716889 0.9729552 0.9979876 0.9980630 0.9978088 
+##         9        10 
+## 0.9984275 0.9915263</code></pre>
+<p>If we were to look at the mpg01.probs object it would contain the probability of the desired response, which is the true/positive response by default. However, we want this to be more intuitive, so we will make everything in the data set say “Below” unless the percentage is above what we consider a fair odds. So, in our case we will say that anything over 50% has a fair chance of being above the median mpg.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="logistic-regression.html#cb261-1" aria-hidden="true" tabindex="-1"></a>mpg01.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&#39;Below&#39;</span>,<span class="dv">392</span>)</span>
+<span id="cb261-2"><a href="logistic-regression.html#cb261-2" aria-hidden="true" tabindex="-1"></a>mpg01.pred[mpg01.probs<span class="sc">&gt;</span>.<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&#39;Above&#39;</span></span></code></pre></div>
+<p>Finally, we can test our accuracy with a confusion matrix. The matrix will show our models predictions compared to the actual outcome. We can use this to test our accuracy and from there tweak different aspects of the model to help reduce variance.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="logistic-regression.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg01.pred,mpg01)</span></code></pre></div>
+<pre><code>##           mpg01
+## mpg01.pred Above Below
+##      Above    18   170
+##      Below   178    26</code></pre>
+<p>Looking at the table we just produced, our accuracy is not the greatest. In fact, it’s pretty terrible. We get our accuracy by adding up the two areas where our model and the actual data match (in this case where above/above and below/below overlap) and then we divide this number by the total number of observations we had in the data set. Using our R arithmetic knowledge, we find our accuracy to be .1122 or 11.22%…as stated before, a terrible accuracy. In fact, we typically aim for accuracy of 95% or better.</p>
+<p>However, having lower prediction accuracy is common and not necessarily a terrible thing. In fact, we sometimes learn more from inaccurate models than we do the more effective ones. For instance, we now know that perhaps our variables are not as correlated as we once thought, or perhaps we set the value for our mpg01.probs object too low. From here, the best thing to do is gather insights, tweak your model, and move on.</p>
+</div>
+<div id="review-questions-2" class="section level2" number="12.5">
+<h2><span class="header-section-number">12.5</span> Review Questions</h2>
 <ol style="list-style-type: decimal">
-<li><p>Consider the dataframe above called <code>df</code>. What would running this code return <code>sum(df[7,7:10])</code></p></li>
-<li><p>How can you tell if an object in R is a dataframe?</p></li>
-<li><p>How could you create the dataframe above called <code>df</code>?</p></li>
-<li><p>What code would return the average of row 2 of <code>df</code>?</p></li>
-<li><p>Consider <code>mtcars</code> dataset that comes preloaded with R that looks like this:</p></li>
+<li><p>What is the difference between logistic regression and linear regression? What is an example of an application for each of them?</p></li>
+<li><p>From scratch, create a logistic regression model using the “Smarket” data set from the ISLR package. You are to create a model predicting the “direction” variable.</p></li>
+<li><p>Test the accuracy of the model you created in the last question.</p></li>
+<li><p>Segment the Auto data set into training and test sets.</p></li>
+<li><p>The following code shows a logistic regression model using test and training data. Recreate a similar model using the Auto data set and the mpg variable.</p></li>
 </ol>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-analytics-i-quizzes.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Why do I get this error when I run the code below: <code>Error in plot(hp, mpg) : object 'hp' not found</code>?</li>
-</ol>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-analytics-i-quizzes.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hp,mpg)</span></code></pre></div>
-<p><code>Error in plot(hp, mpg) : object 'hp' not found</code></p>
-<p>Bonus: What is a topic that you find confusing at this point in class?</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="logistic-regression.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb264-2"><a href="logistic-regression.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Smarket&quot;</span>)</span>
+<span id="cb264-3"><a href="logistic-regression.html#cb264-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
+<span id="cb264-4"><a href="logistic-regression.html#cb264-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb264-5"><a href="logistic-regression.html#cb264-5" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span>(Year<span class="sc">&lt;</span><span class="dv">2005</span>)</span>
+<span id="cb264-6"><a href="logistic-regression.html#cb264-6" aria-hidden="true" tabindex="-1"></a>Smarket<span class="fl">.2005</span><span class="ot">=</span>Smarket[<span class="sc">!</span>train,]</span>
+<span id="cb264-7"><a href="logistic-regression.html#cb264-7" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span><span class="ot">=</span>Direction[<span class="sc">!</span>train]</span>
+<span id="cb264-8"><a href="logistic-regression.html#cb264-8" aria-hidden="true" tabindex="-1"></a>glm.fits<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2<span class="sc">+</span>Lag3<span class="sc">+</span>Lag4<span class="sc">+</span>Lag5<span class="sc">+</span>Volume,<span class="at">data=</span>Smarket,<span class="at">family=</span>binomial,<span class="at">subset=</span>train)</span>
+<span id="cb264-9"><a href="logistic-regression.html#cb264-9" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fits,Smarket<span class="fl">.2005</span>,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb264-10"><a href="logistic-regression.html#cb264-10" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>,<span class="dv">252</span>)</span>
+<span id="cb264-11"><a href="logistic-regression.html#cb264-11" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs<span class="sc">&gt;</span>.<span class="dv">5</span>]<span class="ot">=</span><span class="st">&quot;Up&quot;</span></span></code></pre></div>
 
 </div>
 </div>
@@ -365,8 +382,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="dealing-with-errors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practice-final-exam.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dealing-with-errors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

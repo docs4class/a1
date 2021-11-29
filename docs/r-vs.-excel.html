@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 3 R vs. Excel | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 3 R vs. Excel | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Data Analytics I Quizzes | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 3 R vs. Excel | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dealing-with-errors.html"/>
-<link rel="next" href="practice-final-exam.html"/>
+<link rel="prev" href="r-basics.html"/>
+<link rel="next" href="objects-and-arithmetic.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -281,82 +281,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-analytics-i-quizzes" class="section level1" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Data Analytics I Quizzes</h1>
-<div id="quiz-one-linear-regression" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Quiz One (Linear Regression)</h2>
-<p>Name: __________________________</p>
-<ol style="list-style-type: decimal">
-<li>Add a another variable (column) to the <code>women</code> dataframe called GPA which is these 15 numbers: 1.5, 3.7, 4,1, 3, 2.5, 3.8, 0.8, 2, 4, 1, 3, 2.5, 3.0, 4.0</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Use GPA and weight to predict the height of a person who is 155 pounds and has a GPA if 3.33. What is your prediction? _______</p></li>
-<li><p>Is GPA a significant predictor of height and how do you know?</p></li>
-</ol>
-<p><br>
-<br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Create a figure showing a best fit line on of height and GPA.</li>
-</ol>
-<p><br>
-<br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Install the dplyr package into your Rstudio session.</li>
-</ol>
+<div id="r-vs.-excel" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> R vs. Excel</h1>
+<div id="both-are-useful" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Both are useful</h2>
+<p>Data analytics are increasingly important components of decision-making in any business. Whether you’re a part of a marketing team that needs to generate visuals to highlight industry trends, or you’re looking to generate financial statements, you will need an analytics program to help you develop your reports and effectively communicate your findings.</p>
+<p>Both R and Excel are excellent data analytics tools, but they each have distinct functionality.</p>
+<blockquote>
+<p>Please make sure you can explain the distict funtions of both R and Excel! YOU WILL NEED TO KNOW THIS!</p>
+</blockquote>
+<p>Excel is a well-known software program included in the Microsoft Office Suite. Used to create spreadsheets, execute calculations, produce charts, and perform statistical analysis, Excel is used by many professionals across a variety of industries. PC’s BADM 299 prepares you well for using Excel.</p>
+<p>R is a free, open-source programming language and software environment that’s frequently used in big data analysis and statistical computing. R has many advanced functions and capabilities.</p>
 </div>
-<div id="quiz-two" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Quiz Two</h2>
-<p>Name:___________________________________</p>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    4    7   10   13
-## [2,]    2    5    8   11   14
-## [3,]    3    6    9   12   15</code></pre>
-<ol style="list-style-type: decimal">
-<li><p>Write the code that creates this matrix:</p></li>
-<li><p>Write DIFFERENT code that creates this matrix in an alternate way:</p></li>
-<li><p>In the matrix above, what does <code>[,4]</code> mean?</p></li>
-<li><p>What code would return the value in the 3rd column and 3rd row?</p></li>
-<li><p>What single line of would give you the average of the all the numbers in columns 2, 4, and 5 and in rows 1 and 3?</p></li>
-</ol>
+<div id="differences-between-r-and-excel" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Differences Between R and Excel</h2>
+<p>When choosing between R and Excel, it’s important to understand how either software can get you the results you need. Here are some key differences between R and Excel to help you decide which makes the most sense to use.</p>
 </div>
-<div id="quiz-three" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Quiz Three</h2>
-<p>Name: __________________________</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-analytics-i-quizzes.html#cb266-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
-<pre><code>##    X1 X2 X3 X4 X5 X6 X7 X8 X9 X10
-## 1   1 11 21 31 41 51 61 71 81  91
-## 2   2 12 22 32 42 52 62 72 82  92
-## 3   3 13 23 33 43 53 63 73 83  93
-## 4   4 14 24 34 44 54 64 74 84  94
-## 5   5 15 25 35 45 55 65 75 85  95
-## 6   6 16 26 36 46 56 66 76 86  96
-## 7   7 17 27 37 47 57 67 77 87  97
-## 8   8 18 28 38 48 58 68 78 88  98
-## 9   9 19 29 39 49 59 69 79 89  99
-## 10 10 20 30 40 50 60 70 80 90 100</code></pre>
-<ol style="list-style-type: decimal">
-<li><p>Consider the dataframe above called <code>df</code>. What would running this code return <code>sum(df[7,7:10])</code></p></li>
-<li><p>How can you tell if an object in R is a dataframe?</p></li>
-<li><p>How could you create the dataframe above called <code>df</code>?</p></li>
-<li><p>What code would return the average of row 2 of <code>df</code>?</p></li>
-<li><p>Consider <code>mtcars</code> dataset that comes preloaded with R that looks like this:</p></li>
-</ol>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-analytics-i-quizzes.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Why do I get this error when I run the code below: <code>Error in plot(hp, mpg) : object 'hp' not found</code>?</li>
-</ol>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-analytics-i-quizzes.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hp,mpg)</span></code></pre></div>
-<p><code>Error in plot(hp, mpg) : object 'hp' not found</code></p>
-<p>Bonus: What is a topic that you find confusing at this point in class?</p>
+<div id="ease-of-use-learning-the-software" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Ease of Use &amp; Learning the Software</h2>
+<p>Most people have likely already learned at least a few basic tips in Microsoft Excel. That’s one substantial benefit of using Excel—the initial learning curve is quite minimal, and most analysis can be done via point-and-click on the top panel. Once a user imports their data into the program, it’s not very hard to make basic graphs and charts.</p>
+<p>R is a programming language, however, meaning the initial learning curve is steeper. It will take most at least a few weeks to familiarize themselves with the interface and master the various functions. Luckily, using R can quickly become second-nature with practice.</p>
+</div>
+<div id="replicating-analysis" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Replicating Analysis</h2>
+<p>R, while less user-friendly with a more intimidating user interface, has the capability to reproduce analyses repeatedly and with very different datasets. This can be incredibly helpful for large projects with multiple data sets, as you’ll keep everything consistent and clean, without having to rewrite the script each time.</p>
+<p>Since Excel’s user interface is point-and-click, you’ll need to rely on memory and repetition frequently. You cannot import codes and scripts as you would with R, so you’ll have to “reinvent the wheel” to perform the same analysis across different data sets. This is not detrimental if you are doing basic statistics, but it may become time-consuming with more complicated analyses.</p>
+<blockquote>
+<p>For example, let’s say you have thoroughly analyzed the analytics of 1 football season. How could R (vs Excel) help you quickly analyze a new season’s data?</p>
+</blockquote>
+</div>
+<div id="visualization" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Visualization</h2>
+<p>When deciding between R and Excel, ask yourself, “How detailed do my visualizations need to be in order to achieve my goal(s)?” In Excel, for example, you can quickly highlight a group of cells and make a simple chart for PowerPoint. If you need a more comprehensive graph, however, R may be your best bet. R can produce incredibly attractive, detailed visuals that can help stakeholders understand your findings.</p>
+<p>It all comes down to what you need your graphics to do. If you’re just looking to cobble together a quick-and-dirty presentation to visualize data for your coworkers, then making simple straightforward charts in Excel will suffice. For those planning to publish large amounts of complicated data to various stakeholders, spending the time in R to create impressive interactive visual representations will likely be worth your while.</p>
+<p>For example, here’s and example of a pretty easy visualization in R that would be challenging to do (and update) in Excel.</p>
+<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="packages" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Packages</h2>
+<p>In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others. As of June 2019, there were over 14,000 packages available on the Comprehensive R Archive Network, or CRAN, the public clearing house for R packages. This huge variety of packages is one of the reasons that R is so successful: the chances are that someone has already solved a problem that you’re working on, and you can benefit from their work by downloading their package.</p>
+<p>But packages are useful even if you never share your code. As Hilary Parker says in her introduction to packages: “Seriously, it doesn’t have to be about sharing your code (although that is an added benefit!). It is about saving yourself time.” Organising code in a package makes your life easier because packages come with conventions. For example, you put R code in R/, you put tests in tests/ and you put data in data/. These conventions are helpful because:</p>
+<ul>
+<li>They save you time — you don’t need to think about the best way to organise a project, you can just follow a template.</li>
+<li>Standardized conventions lead to standardized tools — if you buy into R’s package conventions, you get many tools for free.</li>
+</ul>
+<blockquote>
+<p>We will chat more about packages, but for fun check out the links below…</p>
+</blockquote>
+</div>
+<div id="careers" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Careers</h2>
+<p>Aptitude with Excel and R are incredibly valuable competencies that are in-demand across a variety of industries. Countless jobs are looking for applicants with at least some Excel experience (pivot tables look really good on a resumé), but R has a higher earning potential and is more in-demand than Excel.</p>
+<p>R is one of the most popular programming languages and is an industry-standard for data analytics and data science. If you want to enter either field, there’s a good chance you’ll have a competitive advantage by knowing R. Entry-level jobs for those focusing on R also tend to make a high salary, frequently starting off earning more than $75,000.</p>
+<p>Countless job listings also require Excel competency. From administrative assistants, marketers, academics, and more, everyone is expected to use Excel to some degree, whereas 10 to 15 years ago it was optional. Having a good background in Excel is still attractive on a resumé and will help to land a career with a high earning potential, but there are not many jobs looking for Excel skills alone.</p>
+</div>
+<div id="summary-using-r-and-excel" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Summary – Using R and Excel</h2>
+<p>R and Excel are beneficial in different ways. Excel starts off easier to learn and is frequently cited as the go-to program for reporting, thanks to its speed and efficiency. R is designed to handle larger data sets, to be reproducible, and to create more detailed visualizations. It’s not a question of choosing between R and Excel, but deciding which program to use for different needs.</p>
 
 </div>
 </div>
@@ -365,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="dealing-with-errors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practice-final-exam.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objects-and-arithmetic.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

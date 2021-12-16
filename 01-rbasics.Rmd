@@ -213,8 +213,12 @@ But there's a better way. A way that also puts you on the path to managing your 
 
 2. Create a new object called "big_brain" and multiply the object from question one by 15. 
 
-3. Print both objects. 
+3. Print both objects.
 
 4. Use base R functions to return today's date and print it.
 
 5. Create a sequence of numbers counting from 10 to 100 by 2. 
+
+6. Identify your working directory.  What is it?  Change it to where you want it.
+
+7. Save the R script that answers questions 1 through 5 above.  Save it; clean and close Rstudio; reopen your script and run it.  Make sense?

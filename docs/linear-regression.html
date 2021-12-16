@@ -293,17 +293,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="model-structure" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Model Structure</h2>
 <p>Let’s look at a very simple model first. For this example, we will need to import the Introduction to Statistical Learning package (ISLR). We will use the “credit” data set that is part of the ISLR package.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="linear-regression.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb247-2"><a href="linear-regression.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
-<span id="cb247-3"><a href="linear-regression.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
-<span id="cb247-4"><a href="linear-regression.html#cb247-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb247-5"><a href="linear-regression.html#cb247-5" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="linear-regression.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb249-2"><a href="linear-regression.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
+<span id="cb249-3"><a href="linear-regression.html#cb249-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
+<span id="cb249-4"><a href="linear-regression.html#cb249-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-5"><a href="linear-regression.html#cb249-5" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span></code></pre></div>
 <p>lm is the function we use to create linear regression models. Now, before we discuss interpreting the results we get from this function, we will discuss the different parts of the model. The “~” symbol is the key to this entire equation. We are telling R to predict whatever is on the left side of the tilde using the variables on the right.</p>
 </div>
 <div id="interpretation-of-the-model" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Interpretation of the Model</h2>
 <p>Let’s run a summary on this model and see what we get.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="linear-regression.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="linear-regression.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Balance ~ Limit + Ethnicity)
@@ -344,8 +344,8 @@ The second place we see a p-value is at the bottom of our summary. This p-value 
 <p>In our case the slope of our line is related to the independent variables. The sum of these slopes will give us the overall slope of our line and the intercept is provided by the equation summary. If we modify this equation to be more applicable to our situation we would get something like this:</p>
 <p>y = m<sub>1</sub>x<sub>1</sub> + m<sub>2</sub>x<sub>2</sub> … + b</p>
 <p>Let’s look back at our example model from before</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="linear-regression.html#cb250-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span>
-<span id="cb250-2"><a href="linear-regression.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="linear-regression.html#cb252-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Balance <span class="sc">~</span> Limit <span class="sc">+</span> Ethnicity)</span>
+<span id="cb252-2"><a href="linear-regression.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Balance ~ Limit + Ethnicity)
@@ -369,8 +369,8 @@ The second place we see a p-value is at the bottom of our summary. This p-value 
 <p>We see that our limit variable has an estimate of 1.718e-01, this is our slope. When dealing with quantitative variables, we simply multiply our slope by the intended independent variable. So, if we wanted to find the balance of someone with a limit of 400, we would multiply 1.718e-01 by 400.</p>
 <p>With the qualitative variables, in this case ethnicity, we multiply the estimate of the TRUE values by 1 and FALSE values by 0, thus cancelling the FALSE values out.</p>
 <p>Let’s look at an example. If we used our above equation to predict the balance of someone who was Caucasian and has a credit limit of 500, here is the equation we would set up:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="linear-regression.html#cb252-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="fl">1.718e-1</span><span class="sc">*</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">1.381e+01</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.835e+01</span><span class="sc">*</span><span class="dv">0</span>) <span class="sc">+</span> (<span class="sc">-</span><span class="fl">3.078e+02</span>)</span>
-<span id="cb252-2"><a href="linear-regression.html#cb252-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="linear-regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="fl">1.718e-1</span><span class="sc">*</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">1.381e+01</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.835e+01</span><span class="sc">*</span><span class="dv">0</span>) <span class="sc">+</span> (<span class="sc">-</span><span class="fl">3.078e+02</span>)</span>
+<span id="cb254-2"><a href="linear-regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] -208.09</code></pre>
 <p>So, according to our model our customer would have a balance of -208.09. This number may seem funny, but keep in mind that our r-squared was not the best for this model making it inaccurate and the ethnicity of the customer was not highly correlated with the balance. Both of these facts may cause our prediction to be off. If we were actually creating a model that could predict balance, we would want to look at some of the more correlated variables in the data set.</p>
 </div>
@@ -384,10 +384,10 @@ The second place we see a p-value is at the bottom of our summary. This p-value 
 <li><p>What would be the credit limit of a 29 year old with 5 cards and a total balance of 1500?</p></li>
 <li><p>Explain what the following piece of code does</p></li>
 </ol>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="linear-regression.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb254-2"><a href="linear-regression.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
-<span id="cb254-3"><a href="linear-regression.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
-<span id="cb254-4"><a href="linear-regression.html#cb254-4" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cards <span class="sc">~</span> Limit <span class="sc">+</span> Balance <span class="sc">+</span> Education)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="linear-regression.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb256-2"><a href="linear-regression.html#cb256-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Credit&quot;</span>)</span>
+<span id="cb256-3"><a href="linear-regression.html#cb256-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Credit)</span>
+<span id="cb256-4"><a href="linear-regression.html#cb256-4" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cards <span class="sc">~</span> Limit <span class="sc">+</span> Balance <span class="sc">+</span> Education)</span></code></pre></div>
 
 </div>
 </div>

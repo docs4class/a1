@@ -116,6 +116,10 @@ x
 ```{r, echo = FALSE}
 x <-matrix(c(1,7,8,11,5,9),nrow=3,byrow=T)
 y <-matrix(c(6,8,2,1,1,-7),nrow=3,byrow=T)
+```
+
+
+```{r, echo = TRUE}
 x
 y
 ```

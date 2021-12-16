@@ -299,12 +299,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.3</span> Model Structure</h2>
 <p>Let’s use the Auto data set to create a basic logistic regression model. Warning, we are going to be calling on information from earlier in the class a lot during these sections, so if you see any code you are unfamiliar with, first look in earlier class materials as it will not be reexplained here.</p>
 <p>Let’s load in some data from the ISLR package and make some predictions using the “mpg” variable. We want to find the median of the variable, and then predict whether a vehicle will have an mpg above or below that middle point. To do this with logistic regression, we must create a factor object using mpg that our model will try to predict.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="logistic-regression.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb255-2"><a href="logistic-regression.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb255-3"><a href="logistic-regression.html#cb255-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb255-4"><a href="logistic-regression.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Auto&quot;</span>)</span>
-<span id="cb255-5"><a href="logistic-regression.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span>
-<span id="cb255-6"><a href="logistic-regression.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="logistic-regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb257-2"><a href="logistic-regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb257-3"><a href="logistic-regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb257-4"><a href="logistic-regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Auto&quot;</span>)</span>
+<span id="cb257-5"><a href="logistic-regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span>
+<span id="cb257-6"><a href="logistic-regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Auto)</span></code></pre></div>
 <pre><code>##       mpg          cylinders      displacement     horsepower        weight    
 ##  Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Min.   : 46.0   Min.   :1613  
 ##  1st Qu.:17.00   1st Qu.:4.000   1st Qu.:105.0   1st Qu.: 75.0   1st Qu.:2225  
@@ -321,32 +321,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  3rd Qu.:17.02   3rd Qu.:79.00   3rd Qu.:2.000   amc hornet        :  4  
 ##  Max.   :24.80   Max.   :82.00   Max.   :3.000   chevrolet chevette:  4  
 ##                                                  (Other)           :365</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="logistic-regression.html#cb257-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> Auto <span class="sc">%&gt;%</span> </span>
-<span id="cb257-2"><a href="logistic-regression.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg01 =</span> <span class="fu">ifelse</span>(Auto<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="fl">22.75</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb257-3"><a href="logistic-regression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">0</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Below&quot;</span></span>
-<span id="cb257-4"><a href="logistic-regression.html#cb257-4" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">1</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Above&quot;</span></span>
-<span id="cb257-5"><a href="logistic-regression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Auto<span class="sc">$</span>mpg01)</span>
-<span id="cb257-6"><a href="logistic-regression.html#cb257-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb257-7"><a href="logistic-regression.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="logistic-regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> Auto <span class="sc">%&gt;%</span> </span>
+<span id="cb259-2"><a href="logistic-regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg01 =</span> <span class="fu">ifelse</span>(Auto<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="fl">22.75</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb259-3"><a href="logistic-regression.html#cb259-3" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">0</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Below&quot;</span></span>
+<span id="cb259-4"><a href="logistic-regression.html#cb259-4" aria-hidden="true" tabindex="-1"></a>Auto[Auto<span class="sc">$</span>mpg01 <span class="sc">==</span> <span class="dv">1</span>,]<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="st">&quot;Above&quot;</span></span>
+<span id="cb259-5"><a href="logistic-regression.html#cb259-5" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">$</span>mpg01 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(Auto<span class="sc">$</span>mpg01)</span>
+<span id="cb259-6"><a href="logistic-regression.html#cb259-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb259-7"><a href="logistic-regression.html#cb259-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Auto)</span></code></pre></div>
 <p>Now that we have a variable to predict, we can build the model.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="logistic-regression.html#cb258-1" aria-hidden="true" tabindex="-1"></a>glm.auto <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg01 <span class="sc">~</span> weight <span class="sc">+</span> cylinders, <span class="at">data =</span> Auto, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="logistic-regression.html#cb260-1" aria-hidden="true" tabindex="-1"></a>glm.auto <span class="ot">&lt;-</span> <span class="fu">glm</span>(mpg01 <span class="sc">~</span> weight <span class="sc">+</span> cylinders, <span class="at">data =</span> Auto, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
 <p>As you can see, the structure is very similar to that of a linear regression model except for our specification of the data set we want it to use (this can be done in linear regression, but we did not earlier in the class) and the family argument which we have not seen before.</p>
 <p>In this course, we will only every specify family to be binomial, this tells R that the variable we are predicting only has two outcomes. The data argument is used to specify a training data set if we were using one, which we are not in this example.</p>
 </div>
 <div id="model-interpretation" class="section level2" number="12.4">
 <h2><span class="header-section-number">12.4</span> Model Interpretation</h2>
 <p>This is where things start to make a more complicated turn. We are going to look at how we evaluate the model’s performance. First, we must tell R to make the prediction and store the results in an object.</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="logistic-regression.html#cb259-1" aria-hidden="true" tabindex="-1"></a>mpg01.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.auto, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span>
-<span id="cb259-2"><a href="logistic-regression.html#cb259-2" aria-hidden="true" tabindex="-1"></a>mpg01.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="logistic-regression.html#cb261-1" aria-hidden="true" tabindex="-1"></a>mpg01.probs <span class="ot">&lt;-</span> <span class="fu">predict</span>(glm.auto, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span>
+<span id="cb261-2"><a href="logistic-regression.html#cb261-2" aria-hidden="true" tabindex="-1"></a>mpg01.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##         1         2         3         4         5         6         7         8 
 ## 0.9769013 0.9866197 0.9719307 0.9716889 0.9729552 0.9979876 0.9980630 0.9978088 
 ##         9        10 
 ## 0.9984275 0.9915263</code></pre>
 <p>If we were to look at the mpg01.probs object it would contain the probability of the desired response, which is the true/positive response by default. However, we want this to be more intuitive, so we will make everything in the data set say “Below” unless the percentage is above what we consider a fair odds. So, in our case we will say that anything over 50% has a fair chance of being above the median mpg.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="logistic-regression.html#cb261-1" aria-hidden="true" tabindex="-1"></a>mpg01.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&#39;Below&#39;</span>,<span class="dv">392</span>)</span>
-<span id="cb261-2"><a href="logistic-regression.html#cb261-2" aria-hidden="true" tabindex="-1"></a>mpg01.pred[mpg01.probs<span class="sc">&gt;</span>.<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&#39;Above&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="logistic-regression.html#cb263-1" aria-hidden="true" tabindex="-1"></a>mpg01.pred <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">&#39;Below&#39;</span>,<span class="dv">392</span>)</span>
+<span id="cb263-2"><a href="logistic-regression.html#cb263-2" aria-hidden="true" tabindex="-1"></a>mpg01.pred[mpg01.probs<span class="sc">&gt;</span>.<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&#39;Above&#39;</span></span></code></pre></div>
 <p>Finally, we can test our accuracy with a confusion matrix. The matrix will show our models predictions compared to the actual outcome. We can use this to test our accuracy and from there tweak different aspects of the model to help reduce variance.</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="logistic-regression.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg01.pred,mpg01)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="logistic-regression.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mpg01.pred,mpg01)</span></code></pre></div>
 <pre><code>##           mpg01
 ## mpg01.pred Above Below
 ##      Above    18   170
@@ -363,17 +363,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Segment the Auto data set into training and test sets.</p></li>
 <li><p>The following code shows a logistic regression model using test and training data. Recreate a similar model using the Auto data set and the mpg variable.</p></li>
 </ol>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="logistic-regression.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb264-2"><a href="logistic-regression.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Smarket&quot;</span>)</span>
-<span id="cb264-3"><a href="logistic-regression.html#cb264-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
-<span id="cb264-4"><a href="logistic-regression.html#cb264-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb264-5"><a href="logistic-regression.html#cb264-5" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span>(Year<span class="sc">&lt;</span><span class="dv">2005</span>)</span>
-<span id="cb264-6"><a href="logistic-regression.html#cb264-6" aria-hidden="true" tabindex="-1"></a>Smarket<span class="fl">.2005</span><span class="ot">=</span>Smarket[<span class="sc">!</span>train,]</span>
-<span id="cb264-7"><a href="logistic-regression.html#cb264-7" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span><span class="ot">=</span>Direction[<span class="sc">!</span>train]</span>
-<span id="cb264-8"><a href="logistic-regression.html#cb264-8" aria-hidden="true" tabindex="-1"></a>glm.fits<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2<span class="sc">+</span>Lag3<span class="sc">+</span>Lag4<span class="sc">+</span>Lag5<span class="sc">+</span>Volume,<span class="at">data=</span>Smarket,<span class="at">family=</span>binomial,<span class="at">subset=</span>train)</span>
-<span id="cb264-9"><a href="logistic-regression.html#cb264-9" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fits,Smarket<span class="fl">.2005</span>,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb264-10"><a href="logistic-regression.html#cb264-10" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>,<span class="dv">252</span>)</span>
-<span id="cb264-11"><a href="logistic-regression.html#cb264-11" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs<span class="sc">&gt;</span>.<span class="dv">5</span>]<span class="ot">=</span><span class="st">&quot;Up&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="logistic-regression.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb266-2"><a href="logistic-regression.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Smarket&quot;</span>)</span>
+<span id="cb266-3"><a href="logistic-regression.html#cb266-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
+<span id="cb266-4"><a href="logistic-regression.html#cb266-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb266-5"><a href="logistic-regression.html#cb266-5" aria-hidden="true" tabindex="-1"></a>train<span class="ot">=</span>(Year<span class="sc">&lt;</span><span class="dv">2005</span>)</span>
+<span id="cb266-6"><a href="logistic-regression.html#cb266-6" aria-hidden="true" tabindex="-1"></a>Smarket<span class="fl">.2005</span><span class="ot">=</span>Smarket[<span class="sc">!</span>train,]</span>
+<span id="cb266-7"><a href="logistic-regression.html#cb266-7" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span><span class="ot">=</span>Direction[<span class="sc">!</span>train]</span>
+<span id="cb266-8"><a href="logistic-regression.html#cb266-8" aria-hidden="true" tabindex="-1"></a>glm.fits<span class="ot">=</span><span class="fu">glm</span>(Direction<span class="sc">~</span>Lag1<span class="sc">+</span>Lag2<span class="sc">+</span>Lag3<span class="sc">+</span>Lag4<span class="sc">+</span>Lag5<span class="sc">+</span>Volume,<span class="at">data=</span>Smarket,<span class="at">family=</span>binomial,<span class="at">subset=</span>train)</span>
+<span id="cb266-9"><a href="logistic-regression.html#cb266-9" aria-hidden="true" tabindex="-1"></a>glm.probs<span class="ot">=</span><span class="fu">predict</span>(glm.fits,Smarket<span class="fl">.2005</span>,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb266-10"><a href="logistic-regression.html#cb266-10" aria-hidden="true" tabindex="-1"></a>glm.pred<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;Down&quot;</span>,<span class="dv">252</span>)</span>
+<span id="cb266-11"><a href="logistic-regression.html#cb266-11" aria-hidden="true" tabindex="-1"></a>glm.pred[glm.probs<span class="sc">&gt;</span>.<span class="dv">5</span>]<span class="ot">=</span><span class="st">&quot;Up&quot;</span></span></code></pre></div>
 
 </div>
 </div>

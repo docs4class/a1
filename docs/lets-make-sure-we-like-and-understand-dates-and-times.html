@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons</title>
+  <title>Chapter 16 Let’s make sure we like and understand dates and times: | Data Analytics One - Class Materials and Lessons</title>
   <meta name="description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta property="og:title" content="Chapter 16 Let’s make sure we like and understand dates and times: | Data Analytics One - Class Materials and Lessons" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Playing With Data (Using mtcars) | Data Analytics One - Class Materials and Lessons" />
+  <meta name="twitter:title" content="Chapter 16 Let’s make sure we like and understand dates and times: | Data Analytics One - Class Materials and Lessons" />
   
   <meta name="twitter:description" content="This is a book that contains all of the materials and lessons for Dr. Turner’s data analytics one course." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="matrices.html"/>
-<link rel="next" href="dplyr.html"/>
+<link rel="prev" href="practice-final-exam.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -292,96 +292,108 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="playing-with-data-using-mtcars" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Playing With Data (Using mtcars)</h1>
-<div id="practicing-with-mtcars-data-set" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Practicing with <code>mtcars</code> data set</h2>
-<p>This demonstration is based on the datasset <code>mtcars</code>.</p>
-<ol style="list-style-type: decimal">
-<li>Read in <code>mtcars</code></li>
-</ol>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="playing-with-data-using-mtcars.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>View first few rows and last few rows of mtcars dataframe using functions <code>head()</code> and <code>tail()</code></li>
-</ol>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="playing-with-data-using-mtcars.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="playing-with-data-using-mtcars.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code></pre></div>
-<pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
-## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
-## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
-## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
-## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
-## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
-## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Some info about mtcars dataframe using function <code>colnames()</code>, <code>rownames()</code>, and <code>dim()</code></li>
-</ol>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="playing-with-data-using-mtcars.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
-## [11] &quot;carb&quot;</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="playing-with-data-using-mtcars.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mtcars)</span></code></pre></div>
-<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
-##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
-##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
-## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
-## [13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
-## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
-## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
-## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
-## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
-## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
-## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="playing-with-data-using-mtcars.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mtcars)</span></code></pre></div>
-<pre><code>## [1] 32 11</code></pre>
+<div id="lets-make-sure-we-like-and-understand-dates-and-times" class="section level1" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Let’s make sure we like and understand dates and times:</h1>
+<div id="point-of-these-questions" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Point of these questions?</h2>
+<ul>
+<li>Does every year have 365 days?</li>
+<li>Does every day have 24 hours?</li>
+<li>Does every minute have 60 seconds?</li>
+</ul>
 </div>
-<div id="excerises-for-you" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Excerises for you:</h2>
+<div id="do-these-code-chunks-make-sense" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Do these code chunks make sense:</h2>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2021-12-27&quot;</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2021-12-27 11:35:02 EST&quot;</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb284-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb284-2"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb284-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, month, day, hour, minute) <span class="sc">%&gt;%</span> </span>
+<span id="cb284-3"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb284-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">departure =</span> <span class="fu">make_datetime</span>(year, month, day, hour, minute))</span></code></pre></div>
+<pre><code>## # A tibble: 336,776 x 6
+##     year month   day  hour minute departure          
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dttm&gt;             
+##  1  2013     1     1     5     15 2013-01-01 05:15:00
+##  2  2013     1     1     5     29 2013-01-01 05:29:00
+##  3  2013     1     1     5     40 2013-01-01 05:40:00
+##  4  2013     1     1     5     45 2013-01-01 05:45:00
+##  5  2013     1     1     6      0 2013-01-01 06:00:00
+##  6  2013     1     1     5     58 2013-01-01 05:58:00
+##  7  2013     1     1     6      0 2013-01-01 06:00:00
+##  8  2013     1     1     6      0 2013-01-01 06:00:00
+##  9  2013     1     1     6      0 2013-01-01 06:00:00
+## 10  2013     1     1     6      0 2013-01-01 06:00:00
+## # ... with 336,766 more rows</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-1" aria-hidden="true" tabindex="-1"></a>make_datetime_100 <span class="ot">&lt;-</span> <span class="cf">function</span>(year, month, day, time) {</span>
+<span id="cb286-2"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">make_datetime</span>(year, month, day, time <span class="sc">%/%</span> <span class="dv">100</span>, time <span class="sc">%%</span> <span class="dv">100</span>)</span>
+<span id="cb286-3"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb286-4"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-4" aria-hidden="true" tabindex="-1"></a>flights_dt <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb286-5"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_time), <span class="sc">!</span><span class="fu">is.na</span>(arr_time)) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-6"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb286-7"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, dep_time),</span>
+<span id="cb286-8"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arr_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, arr_time),</span>
+<span id="cb286-9"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">sched_dep_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, sched_dep_time),</span>
+<span id="cb286-10"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sched_arr_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, sched_arr_time)</span>
+<span id="cb286-11"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb286-12"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin, dest, <span class="fu">ends_with</span>(<span class="st">&quot;delay&quot;</span>), <span class="fu">ends_with</span>(<span class="st">&quot;time&quot;</span>))</span>
+<span id="cb286-13"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb286-13" aria-hidden="true" tabindex="-1"></a>flights_dt</span></code></pre></div>
+<pre><code>## # A tibble: 328,063 x 9
+##    origin dest  dep_delay arr_delay dep_time            sched_dep_time     
+##    &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;             
+##  1 EWR    IAH           2        11 2013-01-01 05:17:00 2013-01-01 05:15:00
+##  2 LGA    IAH           4        20 2013-01-01 05:33:00 2013-01-01 05:29:00
+##  3 JFK    MIA           2        33 2013-01-01 05:42:00 2013-01-01 05:40:00
+##  4 JFK    BQN          -1       -18 2013-01-01 05:44:00 2013-01-01 05:45:00
+##  5 LGA    ATL          -6       -25 2013-01-01 05:54:00 2013-01-01 06:00:00
+##  6 EWR    ORD          -4        12 2013-01-01 05:54:00 2013-01-01 05:58:00
+##  7 EWR    FLL          -5        19 2013-01-01 05:55:00 2013-01-01 06:00:00
+##  8 LGA    IAD          -3       -14 2013-01-01 05:57:00 2013-01-01 06:00:00
+##  9 JFK    MCO          -3        -8 2013-01-01 05:57:00 2013-01-01 06:00:00
+## 10 LGA    ORD          -2         8 2013-01-01 05:58:00 2013-01-01 06:00:00
+## # ... with 328,053 more rows, and 3 more variables: arr_time &lt;dttm&gt;,
+## #   sched_arr_time &lt;dttm&gt;, air_time &lt;dbl&gt;</code></pre>
+<div id="hadley-says-with-this-data-i-can-visualise-the-distribution-of-departure-times-across-the-year" class="section level3" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> Hadley says: “With this data, I can visualise the distribution of departure times across the year”</h3>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb288-1" aria-hidden="true" tabindex="-1"></a>flights_dt <span class="sc">%&gt;%</span> </span>
+<span id="cb288-2"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb288-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(dep_time)) <span class="sc">+</span> </span>
+<span id="cb288-3"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">86400</span>) <span class="co"># 86400 seconds = 1 day</span></span></code></pre></div>
+<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
+</div>
+</div>
+<div id="the-following-code-from-the-chapter-is-used.-does-it-make-sense" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> The following code from the chapter is used. Does it make sense?</h2>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-1" aria-hidden="true" tabindex="-1"></a>make_datetime_100 <span class="ot">&lt;-</span> <span class="cf">function</span>(year, month, day, time) {</span>
+<span id="cb289-2"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">make_datetime</span>(year, month, day, time <span class="sc">%/%</span> <span class="dv">100</span>, time <span class="sc">%%</span> <span class="dv">100</span>)</span>
+<span id="cb289-3"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb289-4"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-4" aria-hidden="true" tabindex="-1"></a>flights_dt <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
+<span id="cb289-5"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_time), <span class="sc">!</span><span class="fu">is.na</span>(arr_time)) <span class="sc">%&gt;%</span></span>
+<span id="cb289-6"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb289-7"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, dep_time),</span>
+<span id="cb289-8"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arr_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, arr_time),</span>
+<span id="cb289-9"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">sched_dep_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, sched_dep_time),</span>
+<span id="cb289-10"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sched_arr_time =</span> <span class="fu">make_datetime_100</span>(year, month, day, sched_arr_time)</span>
+<span id="cb289-11"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb289-12"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb289-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin, dest, <span class="fu">ends_with</span>(<span class="st">&quot;delay&quot;</span>), <span class="fu">ends_with</span>(<span class="st">&quot;time&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-1" aria-hidden="true" tabindex="-1"></a>sched_dep <span class="ot">&lt;-</span> flights_dt <span class="sc">%&gt;%</span></span>
+<span id="cb290-2"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">minute =</span> <span class="fu">minute</span>(sched_dep_time)) <span class="sc">%&gt;%</span></span>
+<span id="cb290-3"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(minute) <span class="sc">%&gt;%</span></span>
+<span id="cb290-4"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb290-5"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb290-6"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb290-7"><a href="lets-make-sure-we-like-and-understand-dates-and-times.html#cb290-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<div id="what-do-these-do-floor_date-round_date-and-ceiling_date" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> What do these do: <code>floor_date()</code>, <code>round_date()</code>, and <code>ceiling_date()</code>?</h2>
+</div>
+<div id="try-these" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Try these</h2>
 <ol style="list-style-type: decimal">
-<li><p>Find the minimum and maximum value of <code>mpg</code></p></li>
-<li><p>Find the mean and standard deviation of data variable <code>mpg</code></p></li>
-<li><p>What variable has a 3rd quartile value of 180.0?</p></li>
-<li><p>Create and explain what this means</p></li>
-</ol>
-<p><img src="Data-Analytics-I-Bookdown_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Create and explain what this means</li>
-</ol>
-<pre><code>##             mpg        cyl       disp         hp        drat         wt
-## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
-## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
-## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
-## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
-## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
-## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
-## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
-## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
-## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
-## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
-## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
-##             qsec         vs          am       gear        carb
-## mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
-## cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
-## disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
-## hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
-## drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
-## wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
-## qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
-## vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
-## am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
-## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
-## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>Create a variable called <code>efficiency</code> which is mpg divided by weight. Which car has the max <code>efficiency</code> and what is this value?</li>
-<li>Which variable in this dataset has the greatest standard deviation?</li>
-<li>How many cars have 3 gears?</li>
-<li>How many cars get more than 17 mpg?</li>
+<li><p>Look at the number of cancelled flights per day. Is there a pattern? Is the proportion of cancelled flights related to the average delay?</p></li>
+<li><p>Which carrier has the worst delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about <code>flights %&gt;% group_by(carrier, dest) %&gt;% summarise(n())</code>)</p></li>
+<li><p>Use a good old visual aid to illustrate if/how how the average delay time changes over the course of a day. Your graph should answer, do flights get more late as the day goes on?</p></li>
+<li><p>On what day of the week should you leave if you want to minimize the chance of a delay? How do you know? Use a bar chart to show the average delay for each day of the week.</p></li>
+<li><p>Are early arrivals of flights caused more by scheduled flights that leave early or that make up time in the air?</p></li>
 </ol>
 
 </div>
@@ -391,8 +403,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="matrices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="practice-final-exam.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

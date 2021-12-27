@@ -84,3 +84,10 @@ quiz-three
 practice-final-exam
 meter-freestyle-olympic-winning-time-seconds
 starwars-fun
+lets-make-sure-we-like-and-understand-dates-and-times
+point-of-these-questions
+do-these-code-chunks-make-sense
+hadley-says-with-this-data-i-can-visualise-the-distribution-of-departure-times-across-the-year
+the-following-code-from-the-chapter-is-used.-does-it-make-sense
+what-do-these-do-floor_date-round_date-and-ceiling_date
+try-these

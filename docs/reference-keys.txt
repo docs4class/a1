@@ -91,3 +91,8 @@ hadley-says-with-this-data-i-can-visualise-the-distribution-of-departure-times-a
 the-following-code-from-the-chapter-is-used.-does-it-make-sense
 what-do-these-do-floor_date-round_date-and-ceiling_date
 try-these
+lets-make-some-meaningful-but-pretty-pictures
+excercises
+airbnb-listings-in-edinburgh
+learning-goals
+data

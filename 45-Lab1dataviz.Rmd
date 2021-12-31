@@ -1,7 +1,3 @@
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 # Let's make some meaningful (but pretty!) pictures!
 
 > Please make sure you have read and understood R4DS Chapter 
@@ -14,7 +10,7 @@ and
 
 We'll use the **tidyverse** package for this analysis, and the data is in the **dsbox** package. Run the following code in the Console to load these packages.
 
-```{r load-packages, message=FALSE, warning=FALSE}
+```{r load-packages2, message=FALSE, warning=FALSE}
 library(tidyverse)
 # install.packages("devtools")
 library(devtools)
